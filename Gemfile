@@ -9,6 +9,7 @@ gem 'therubyracer', :platforms => :ruby
 gem 'sqlite3'
 gem 'github_api'
 gem 'bootstrap-sass'
+gem 'devise'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
