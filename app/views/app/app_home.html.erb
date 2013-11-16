@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>KnacK</title>
 </head>
-<body>
 
+
+<body background="../app/assets/images/app_back.jpg">
 
 <div class="container">
-  <h1 style="color : skyblue; text-align: center "><font size="7">Welcome to KnacK</font></h1>
+  <h1 style="color : white; text-align: center "><font size="7">Welcome to KnacK</font></h1>
 
   <div class="row text-center">
-    <p>Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow, Blogger to generate coder
-      contribution</p>  </br>
+    <h3 style="color : white">Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow, Blogger to generate coder
+      contribution</h3>  </br>
     </br>
-    <%= image_tag("github-logo.png", :alt => "image not found", :height => "250", :width => "350", class: "img-thumbnail") %>  </br>   </br>
-    <%= image_tag("stackoverflow-logo.jpg", :alt => "image not found", :height => "250", :width => "350", class: "img-thumbnail") %> </br>    </br>
-    <%= image_tag("blogger-logo.jpg", :alt => "image not found", :height => "250", :width => "350", class: "img-thumbnail") %>
+    <div class="grow pic">
+    <%= image_tag("github-logo.png", :alt => "image not found") %>
+    <%= image_tag("sof-logo.png", :alt => "image not found") %>
+    <%= image_tag("blogger-logo.png", :alt => "image not found") %>
+    </div>
   </div>
 </div>
 
 
 </body>
+
 </html>
 
 

@@ -1,3 +1,27 @@
 // Place all the styles related to the app controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  background: url(app_back2.jpeg);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: 125%;
+  background-color: skyblue;
+}
+
+
+.grow img {
+  height: 200px;
+  width: 200px;
+
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.grow img:hover {
+  width: 400px;
+  height: 400px;
+}
