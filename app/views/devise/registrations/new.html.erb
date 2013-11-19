@@ -1,18 +1,40 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<head>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+</head>
+<body>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<div class="row-fluid">
+  <div class="col-xs-8">
+        <h1>KnacK</h1>
+    <h3 style="color : skyblue">Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow, Blogger to generate coder
+      contribution</h3>
+  </div>
+  <div class="col-xs-4">
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <h2>Sign up</h2>
 
-<%= render "devise/shared/links" %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div><%= f.label :email %><br />
+          <%= f.email_field :email, :autofocus => true %></div>
+
+        <div><%= f.label :password %><br />
+          <%= f.password_field :password %></div>
+
+        <div><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation %></div>
+
+        <div><%= f.submit "Sign up" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+</body>
+</html>
