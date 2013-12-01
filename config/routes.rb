@@ -1,8 +1,9 @@
 Knack::Application.routes.draw do
 
   devise_for :users
-  root :to => 'sof#index'
-  #root :to => 'app#app_home'
+  #root :to => 'sof#consumer'
+  root :to => 'app#app_home'
+  match 'loginhome/getoption'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,8 +53,8 @@ Knack::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # just remember to delete public/consumer.html.
+  # root :to => 'welcome#consumer'
 
   # See how all your routes lay out with "rake routes"
 
