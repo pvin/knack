@@ -5,6 +5,11 @@ Knack::Application.routes.draw do
   root :to => 'app#app_home'
   match 'loginhome/getoption'
 
+  match 'gblogger/consumer'
+  match 'sof/consumer'
+  match 'github/consumer'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
