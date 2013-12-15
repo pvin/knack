@@ -4,8 +4,8 @@
 
 
 .grow img {
-  height: 200px;
-  width: 200px;
+  height: 170px;
+  width: 170px;
 
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -15,6 +15,7 @@
 }
 
 .grow img:hover {
-  width: 400px;
-  height: 400px;
+  width: 100px;
+  height: 100px;
 }
+
