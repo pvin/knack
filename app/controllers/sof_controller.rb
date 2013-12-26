@@ -6,6 +6,7 @@ class SofController < ApplicationController
 
   def consumer
 
+
   end
 
 
