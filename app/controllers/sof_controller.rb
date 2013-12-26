@@ -1,3 +1,4 @@
+require 'prawn'
 
 class SofController < ApplicationController
   include HTTParty
@@ -9,19 +10,16 @@ class SofController < ApplicationController
 
 
   def consumer1
-  #  @firstname = request["firstName"]
-  #  puts @firstname
-  #  puts '^^^^^^^^^^^^^^^^^^^^^^^^'
-  #  response = self.class.get("/users/#{@firstname}")
-  #  puts '++++++++++++'
-  #  puts response  #response["users"][0]["badge_counts"]["gold"]
-  #  puts '++++++++++++++'
-  #
-  #  Prawn::Document.generate("hello.pdf") do
-  #    text "#{response}"
-  #  end
-  #
-
+    @firstname = request["firstName"]
+    @response = self.class.get("/users/#{@firstname}")
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text "#{@response}"
+        send_data pdf.render, type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
 end
