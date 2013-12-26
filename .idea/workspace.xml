@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a320be13-d082-4656-baec-845d4414b78f" name="Default" comment="loginhome view is added">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sof_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sof_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="knack.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387957456073" ignored="false" />
+    <file path="/Dummy.txt" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388044252400" ignored="false" />
     <file path="/routes.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387697618043" ignored="false" />
     <file path="/app_home.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1383996407901" ignored="false" />
-    <file path="/app_home.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387047487765" ignored="false" />
-    <file path="/Gemfile" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387700612233" ignored="false" />
+    <file path="/app_home.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387971414657" ignored="false" />
+    <file path="/Gemfile" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388032972861" ignored="false" />
     <file path="/a.dummy" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384616650996" ignored="false" />
     <file path="/_links.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384026906696" ignored="false" />
     <file path="/application.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1386527733537" ignored="false" />
@@ -21,17 +19,17 @@
     <file path="/devise.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384029089030" ignored="false" />
     <file path="/app.css.scss" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384613790381" ignored="false" />
     <file path="/new.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384711183891" ignored="false" />
-    <file path="/sof_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387946949852" ignored="false" />
+    <file path="/sof_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388040645311" ignored="false" />
     <file path="/index.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1385222992764" ignored="false" />
     <file path="/gblogger_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1385284594374" ignored="false" />
     <file path="/application_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1385879919242" ignored="false" />
     <file path="/loginhome_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387118609230" ignored="false" />
     <file path="/getoption.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387130577125" ignored="false" />
     <file path="/consumer.erb.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1385886474712" ignored="false" />
-    <file path="/consumer.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387339280982" ignored="false" />
+    <file path="/consumer.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388040960737" ignored="false" />
     <file path="/github_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387129228502" ignored="false" />
     <file path="/knack.css.scss" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1386863084551" ignored="false" />
-    <file path="/consumer1.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387338341657" ignored="false" />
+    <file path="/consumer1.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388040497893" ignored="false" />
     <file path="$PROJECT_DIR$/../prawn/Gemfile" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387700613810" ignored="false" />
     <file path="$PROJECT_DIR$/../prawn/app/views/test/doo.pdf.prawn.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387693128724" ignored="false" />
     <file path="/doo.pdf.prawn.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387693086306" ignored="false" />
@@ -50,6 +48,8 @@
     <file path="$PROJECT_DIR$/../prawn/app/controllers/books_controller.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387699679630" ignored="false" />
     <file path="$PROJECT_DIR$/../prawn/app/views/books/show.pdf.prawn" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387700409837" ignored="false" />
     <file path="$PROJECT_DIR$/../prawn/app/views/books/show.pdf.prawn.html" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1387700088402" ignored="false" />
+    <file path="/consumer1.pdf.prawn" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388040676335" ignored="false" />
+    <file path="/mime_types.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388043001349" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,16 +72,16 @@
       <file leaf-file-name="sof_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/sof_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="4" selection-start="510" selection-end="510" vertical-scroll-proportion="0.5877342">
+            <state line="21" column="77" selection-start="485" selection-end="485" vertical-scroll-proportion="0.53662694">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="consumer.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/sof/consumer.html.erb">
+      <file leaf-file-name="mime_types.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/initializers/mime_types.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="5" column="22" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,34 +90,16 @@
       <file leaf-file-name="consumer1.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/sof/consumer1.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="3" column="73" selection-start="23" selection-end="23" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
+      <file leaf-file-name="consumer.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/sof/consumer.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="32" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="29" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginhome_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/loginhome_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0">
+            <state line="7" column="94" selection-start="248" selection-end="248" vertical-scroll-proportion="-4.375">
               <folding />
             </state>
           </provider>
@@ -126,16 +108,16 @@
       <file leaf-file-name="getoption.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/loginhome/getoption.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="7" selection-start="2250" selection-end="2315" vertical-scroll-proportion="0.0">
+            <state line="63" column="55" selection-start="2729" selection-end="2729" vertical-scroll-proportion="-8.916667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="github_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/github_controller.rb">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+            <state line="20" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -159,28 +141,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/unlocks/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/app.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/knack.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/app/app_home.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/loginhome_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/github_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/loginhome/getoption.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/sof/consumer1.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/sof/consumer.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/app/app_home.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/sof/consumer1.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/sof/consumer1.pdf.prawn" />
+        <option value="$PROJECT_DIR$/app/views/sof/consumer.html.erb" />
+        <option value="$PROJECT_DIR$/config/initializers/mime_types.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sof_controller.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1431" />
-    <option name="y" value="-744" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
   </component>
@@ -210,8 +192,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -240,7 +222,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -254,15 +240,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sof" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,11 +283,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../prawn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/assets/images" />
+      <recent name="$PROJECT_DIR$/app/views" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/app/views/gblogger" />
@@ -669,18 +648,43 @@
       <created>1387093859515</created>
       <updated>1387093859515</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="modified gem file for prawn">
+      <created>1388043144337</created>
+      <updated>1388043144337</updated>
+    </task>
+    <task id="LOCAL-00023" summary="action has changed to open pdf directly">
+      <created>1388043239110</created>
+      <updated>1388043239110</updated>
+    </task>
+    <task id="LOCAL-00024" summary="edited vew file">
+      <created>1388043275869</created>
+      <updated>1388043275869</updated>
+    </task>
+    <task id="LOCAL-00025" summary="changed knack logo">
+      <created>1388043348271</created>
+      <updated>1388043348271</updated>
+    </task>
+    <task id="LOCAL-00026" summary="pdf generation on sof">
+      <created>1388043857191</created>
+      <updated>1388043857191</updated>
+    </task>
+    <task id="LOCAL-00027" summary="deleted .pdf.prawn">
+      <created>1388044255594</created>
+      <updated>1388044255594</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1431" y="-744" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30695444" sideWeight="0.6713396" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21982414" sideWeight="0.6713396" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -690,7 +694,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940048" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -738,7 +741,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed action name from index to consumer in gih_hub controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted .pdf.prawn" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -770,24 +773,22 @@
     <MESSAGE value="added responsive design to getoption page" />
     <MESSAGE value="changed fond color" />
     <MESSAGE value="changed action name from index to consumer in gih_hub controller" />
+    <MESSAGE value="modified gem file for prawn" />
+    <MESSAGE value="action has changed to open pdf directly" />
+    <MESSAGE value="edited vew file" />
+    <MESSAGE value="changed knack logo" />
+    <MESSAGE value="pdf generation on sof" />
+    <MESSAGE value="deleted .pdf.prawn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/knack.css.scss">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="48" selection-end="48" vertical-scroll-proportion="0.04901961" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/images/app_back.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/images/app_back1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
+        <state line="12" column="26" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/images/app_back2.jpeg">
@@ -805,16 +806,9 @@
         <state line="21" column="0" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/app/app_home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="83" selection-start="560" selection-end="560" vertical-scroll-proportion="0.32173914" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/loginhome_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/rubymine.jar!/resources/html5-schema/sectional.rnc">
@@ -829,44 +823,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/loginhome/getoption.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/github_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="7" selection-start="2250" selection-end="2315" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="10" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sof/consumer1.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/app/app_home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sof/consumer.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="12" column="191" selection-start="256" selection-end="256" vertical-scroll-proportion="-4.5416665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+        <state line="20" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/github_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/loginhome/getoption.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+        <state line="63" column="55" selection-start="2729" selection-end="2729" vertical-scroll-proportion="-8.916667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sof/consumer.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="94" selection-start="248" selection-end="248" vertical-scroll-proportion="-4.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sof/consumer1.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="73" selection-start="23" selection-end="23" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/mime_types.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="22" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sof_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="4" selection-start="510" selection-end="510" vertical-scroll-proportion="0.5877342">
+        <state line="21" column="77" selection-start="485" selection-end="485" vertical-scroll-proportion="0.53662694">
           <folding />
         </state>
       </provider>
