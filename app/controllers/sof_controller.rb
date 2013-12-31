@@ -28,7 +28,7 @@ class SofController < ApplicationController
 
         pdf.move_down 20
         pdf.font_size 14
-        pdf.text "Below generated report for stack overflow user #{@test}"
+        pdf.text "Below generated report for stack overflow user #{@response["users"][0]["display_name"]}"
 
         pdf.move_down 20
         to_show = [["UserId", "#{@response["users"][0]["user_id"]}"],
