@@ -9,7 +9,7 @@ Knack::Application.routes.draw do
   match 'sof/consumer'
   match 'sof/consumer1'
   match 'github/consumer'
-
+  match 'github/consumer1'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
