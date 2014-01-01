@@ -107,6 +107,12 @@ GEM
       pdf-reader (~> 1.2)
       ruby-rc4
       ttfunk (~> 1.0.3)
+<<<<<<< HEAD
+=======
+    prawnto_2 (0.2.6)
+      prawn (>= 0.6.0)
+      rails (>= 3.1)
+>>>>>>> master
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -175,6 +181,10 @@ DEPENDENCIES
   httparty
   jquery-rails
   prawn
+<<<<<<< HEAD
+=======
+  prawnto_2
+>>>>>>> master
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3
