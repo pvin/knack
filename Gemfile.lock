@@ -180,10 +180,8 @@ DEPENDENCIES
   httparty
   jquery-rails
   prawn
-<<<<<<< HEAD
-=======
+
   prawnto_2
->>>>>>> master
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3
