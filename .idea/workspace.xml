@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a320be13-d082-4656-baec-845d4414b78f" name="Default" comment="added logo">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/app_back.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/app_back1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/app_back2.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/d.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/dome.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/fi-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/logo1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/pot-holder.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/test.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/th.jpeg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="knack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +12,7 @@
     <file path="/app_home.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1383996407901" ignored="false" />
     <file path="/app_home.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388841026680" ignored="false" />
     <file path="/Gemfile" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384025079292" ignored="false" />
-    <file path="/a.dummy" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388822619322" ignored="false" />
+    <file path="/a.dummy" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1388860364930" ignored="false" />
     <file path="/_links.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384026906696" ignored="false" />
     <file path="/application.html.erb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384588791791" ignored="false" />
     <file path="/development.rb" changelist="a320be13-d082-4656-baec-845d4414b78f" time="1384028521639" ignored="false" />
@@ -66,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_home.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app_home.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/app/app_home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="52" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.08571429">
+            <state line="93" column="44" selection-start="2716" selection-end="2716" vertical-scroll-proportion="11.291667">
               <folding />
             </state>
           </provider>
@@ -120,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+            <state line="9" column="28" selection-start="324" selection-end="345" vertical-scroll-proportion="0.41284403">
               <folding />
             </state>
           </provider>
@@ -167,7 +156,6 @@
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/knack.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" />
@@ -181,12 +169,13 @@
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/views/loginhome/getoption.html.erb" />
         <option value="$PROJECT_DIR$/app/views/app/app_home.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-744" />
+    <option name="x" value="1431" />
+    <option name="y" value="24" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
   </component>
@@ -534,11 +523,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-744" width="1301" height="744" extended-state="6" />
+    <frame x="1431" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3341327" sideWeight="0.6713396" order="0" side_tool="false" content_ui="combo" />
@@ -550,7 +540,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -649,13 +638,6 @@
         <state line="181" column="11" selection-start="3993" selection-end="3993" vertical-scroll-proportion="0.73039216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="33" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
@@ -714,7 +696,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/app/app_home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="52" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.08571429">
+        <state line="93" column="44" selection-start="2716" selection-end="2716" vertical-scroll-proportion="11.291667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="324" selection-end="345" vertical-scroll-proportion="0.41284403">
           <folding />
         </state>
       </provider>
