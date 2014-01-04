@@ -1,37 +1,128 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <title>KnacK</title>
+  <meta charset="utf-8"/>
+  <style>
+
+      @font-face {
+          font-family: 'groboldregular';
+          src: url('/assets/title/grobold-webfont.eot');
+          src: url('/assets/title/grobold-webfont.eot?#iefix') format('embedded-opentype'),
+          url('/assets/title/grobold-webfont.woff') format('woff'),
+          url('/assets/title/grobold-webfont.ttf') format('truetype'),
+          url('/assets/title/grobold-webfont.svg#groboldregular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+
+      }
+
+      @font-face {
+          font-family: 'abstrasctikregular';
+          src: url('/assets/next/abstrasctik-webfont.eot');
+          src: url('/assets/next/abstrasctik-webfont.eot?#iefix') format('embedded-opentype'),
+          url('/assets/next/abstrasctik-webfont.woff') format('woff'),
+          url('/assets/next/abstrasctik-webfont.ttf') format('truetype'),
+          url('/assets/next/abstrasctik-webfont.svg#abstrasctikregular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+      @font-face {
+          font-family: 'a_sensible_armadilloregular';
+          src: url('/assets/para/a_sensible_armadillo-webfont.eot');
+          src: url('/assets/para/a_sensible_armadillo-webfont.eot?#iefix') format('embedded-opentype'),
+          url('/assets/para/a_sensible_armadillo-webfont.woff') format('woff'),
+          url('/assets/para/a_sensible_armadillo-webfont.ttf') format('truetype'),
+          url('/assets/para/a_sensible_armadillo-webfont.svg#a_sensible_armadilloregular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+
+      }
+
+
+      .grow {
+          margin-top: 15em;
+      }
+
+      .title {
+          height: 220px;
+          margin-top: -20px;
+          background: #000;
+          opacity: 0.5;
+      }
+      .title h1 {
+          font-family: 'groboldregular';
+          font-size: 92px;
+      }
+
+      .content {
+          height: 228px;
+          margin-top: 230px;
+          background: #000;
+          opacity: 0.5;
+      }
+
+      .content p {
+          font-family: 'a_sensible_armadilloregular';
+          font-size: 42px;
+      }
+
+
+      p, h1 {
+          color: #fff;
+          text-align: center;
+      }
+
+      .container {
+          width: 100% !important;
+      }
+
+      a.next {
+           font-family: 'abstrasctikregular';
+           font-size: 42px;
+           position:fixed;
+           top:310px;
+           right:615px;
+           text-decoration: none;
+          color:#fff;
+       }
+      a.next:hover {text-decoration: none ; color:#333333 ;}
+
+      h1 :hover {text-decoration: none ;color:#ff;}
+
+      h1 a{
+          color:#fff;
+      }
+  </style>
+
 </head>
-
-
 <body>
-
 <div class="container">
 
-  <div style="background-image:url(http://cdn1.animhut.com/wp-content/uploads/2009/11/12freehighresolutionfabric.jpg);width:1160px;height:678px;border:0px solid #ccc;padding:5px;">
+  <div class = "title">
+    <h1><a href="/users/sign_in">KnacK</a></h1>
+  </div>
 
-  <h1 style="color : blue; text-align: center "><%= image_tag("pie-chart-1.png",:height => "160", :width => "180", :alt => "image not found") %><font size="7">  Welcome to KnacK</font></h1>
+    <a href="/users/sign_in" class = "next">Try</a>
 
-  <div class="row text-center">
-    <h3 style="color : blue ">Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow, Blogger to generate coder
-      contribution</h3>  </br>
-    </br>
-    <div class="grow pic">
-    <%= image_tag("github-logo.png", :alt => "image not found") %>
-    <%= image_tag("sof-logo.png", :alt => "image not found") %>
-    <%= image_tag("blogger-logo.png", :alt => "image not found") %>
-    </div>  </br> </br> </br>
-    <a href="/users/sign_in" class="btn btn-primary">Continue.....</a>
+
+  <div class="content">
+    <p>Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow and Blogger to generate coder
+      contribution</p>
   </div>
 </div>
-
-</div>
-
+<script src="/assets/jquery.js"></script>
+<script src="/assets/jquery.backstretch.js"></script>
+<script>
+    $.backstretch([
+        "/assets/11.jpg",
+        "/assets/12.jpg",
+        "/assets/14.jpg",
+        "/assets/15.jpg"
+    ], {
+        fade: 750,
+        duration: 3000
+    });
+</script>
 </body>
-
 </html>
-
-
-
