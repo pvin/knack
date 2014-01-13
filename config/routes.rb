@@ -6,8 +6,8 @@ Knack::Application.routes.draw do
   match 'loginhome/getoption'
 
   match 'gblogger/consumer'
-  match 'sof/consumer'
-  match 'sof/consumer1'
+  match 'loginhome/sof_consumer'
+
   match 'github/consumer'
   match 'github/consumer1'
 
