@@ -1,87 +1,136 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>KnacK is ready to start</title>
-  <link rel="stylesheet" href="http://flip.hr/css/bootstrap.min.css">
+  <meta charset='UTF-8'/>
+  <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'>
+  <style>
+
+  </style>
 </head>
 
 <body>
-<div class="container">
-  <nav class="navbar navbar-default" role="navigation">
 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Knack</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="/github/consumer">Try Github</a></li>
-        <li><a href="/sof/consumer">Try Stackoverflow</a></li>
-        <li><a href="/gblogger/consumer">Try Blogger</a></li>
-        <li><a href="#">Contact me</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">SignOut</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-
-
-
-  <div class="hero-unit">
-    <h1>KnacK is ready to start</h1>
-    <p>Hello guys want to check tech KnacK of a person, then you in right place to do that...</p>
-
-  </div><!-- .hero-unit -->
-
-  <div class="row">
-    <div class="span4">
-      <h2>GitHub</h2>
-      <p>GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub offers both paid plans for private repositories, and free accounts for open source projects. As of May 2011, GitHub was the most popular code repository site for open source projects. </p>
-      <p><a class="btn" href="/github/consumer">Click me &raquo;</a></p>
-    </div><!-- .span4 -->
-
-    <div class="span4">
-      <h2>StackOverFlow</h2>
-      <p>Stack Overflow is a question and answer site for professional and enthusiast programmers. It's built and run by you as part of the Stack Exchange network of Q&A sites. With your help, we're working together to build a library of detailed answers to every question about programming. </p>
-      <%= link_to "sof", :controller => "sof", :action => "consumer" %>
-    </div><!-- .span4 -->
-
-    <div class="span3">
-      <h2>GoogleBlogger</h2>
-      <p>Google Blogger helps you with the basics of creating your own blog, but you want your blog to reflect your personality, don’t you? Well, templates that you can use and adapt as your creativity dictates can be the launching pad for a blog site that is uniquely you.</p>
-      <p><a class="btn" href="/gblogger/consumer">Click me &raquo;</a></p>
-    </div><!-- .span4 -->
-
-  </div><!-- .row -->
-</div><!-- .container -->
-
-</br>
-
-<div class="container">
-  <div class="row-fluid">
-    <div class="span4">
-      <p>&copy; 2013 <a href="#">KnacK Labs</a></p>
-    </div>
-
+<div id="header">
+  <div id="nav">
+    <a href="#home" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Home</a>
+    <a href="#github" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GitHub</a>
+    <a href="#sof" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">StackOverFlow</a>
+    <a href="#blogger" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GBlogger</a>
+    <a href="#contact" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
+    <a href="#contact" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">SignOut</a>
   </div>
 </div>
 
+<div id="page-wrap">
+  <div id="page0" style="height:500px"><a name="home"></a></div>
+
+  <div id="page1">
+    <a name="github"></a>
+    <div class="page-padding"></div>
+    <div class="col-md-6">
+      <form name="form" method="post"  action="" >
+        <h1>GitHub</h1>
+        <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
+          <td width="30%">First Name:<br/></td>
+          <td><input type="text" size=25 maxlength=20 name="firstName"></td>
+          <tr>
+            <td ><input type="Reset">
+            <td ><input type="submit" value="Submit">
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag("github-logo.png", :alt => "github",:height => '430',:width => '340') %>
+    </div>
+
+  </div>
+  <!--END page1-->
+
+  <div id="page2">
+    <a name="sof"></a>
+    <div class="page-padding"></div>
+    <div class="col-md-6">
+      <form name="form" method="post"  action="sof_consumer.pdf" >
+        <h1>Stack Over Flow</h1>
+        <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
+          <td width="30%">Stack Over Flow Id:<br/></td>
+          <td><input type="text" size=25 maxlength=20 name="firstName"></td>
+          <tr>
+            <td ><input type="Reset">
+            <td ><input type="submit" value="Submit">
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag("sof-logo.png", :alt => "stackoverflow",:height => '430',:width => '340') %>
+    </div>
+
+  </div>
+  <!--END page2-->
+
+  <div id="page3">
+    <a name="blogger"></a>
+    <div class="page-padding"></div>
+    <div class="col-md-6">
+      <form name="form" method="post"  action="" >
+        <h1>Blogger</h1>
+        <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
+          <td width="30%">First Name:<br/></td>
+          <td><input type="text" size=25 maxlength=20 name="firstName"></td>
+          <tr>
+            <td ><input type="Reset">
+            <td ><input type="submit" value="Submit">
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag("blogger-logo.png", :alt => "blogger",:height => '430',:width => '340') %>
+    </div>
+
+  </div>
+  <!--END page3-->
+
+  <div id="page4">
+    <a name="contact"></a>
+
+    <div class="page-padding"></div>
+    <p>This is what you see on the Contact page.</p>
+  </div>
+  <!--END page4-->
+
+</div>
+<!--END page-wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script>$(document).ready(function () {
+    function filterPath(string) {
+        return string
+                .replace(/^\//, '')
+                .replace(/(index|default).[a-zA-Z]{3,4}$/, '')
+                .replace(/\/$/, '');
+    }
+
+    $('a[href*=#]').each(function () {
+        if (filterPath(location.pathname) == filterPath(this.pathname)
+                && location.hostname == this.hostname
+                && this.hash.replace(/#/, '')) {
+            var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) + ']');
+            var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+            if ($target) {
+                var targetOffset = $target.offset().top;
+                $(this).click(function () {
+                    $('html, body').animate({scrollTop: targetOffset}, 1500);
+                    return false;
+                });
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
