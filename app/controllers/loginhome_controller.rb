@@ -51,7 +51,6 @@ class LoginhomeController < ApplicationController
   end
 
   def git_consumer
-
     @name = request["gitname"]
     @hash_values=Github.repos.list user: "#{@name}", repo:'-Contactform'
     puts '============================'
@@ -59,5 +58,16 @@ class LoginhomeController < ApplicationController
     puts '============================'
   end
 
+  def blog_consumer
+    @blog_id = request["blogid"]
+    puts '++++++++++'
+    puts @blog_id
+    puts '++++++++++'
+    response = HTTParty.get('https://www.googleapis.com/blogger/v3/blogs/3891960319537892971/posts?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A')
+    puts '-----------------'
+    puts response.body
+    puts '-----------------'
+
+  end
 
 end
