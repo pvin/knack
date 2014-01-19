@@ -50,4 +50,14 @@ class LoginhomeController < ApplicationController
 
   end
 
+  def git_consumer
+
+    @name = request["gitname"]
+    @hash_values=Github.repos.list user: "#{@name}", repo:'-Contactform'
+    puts '============================'
+    puts     @hash_values.length
+    puts '============================'
+  end
+
+
 end
