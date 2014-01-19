@@ -4,52 +4,91 @@
 <head>
 
   <style>
-      .github, .stack, .blogger {min-height: 175px;MARGIN-BOTTOM: 1em}
-      .github { background-color: #eA3A3A;OPACITY: 0.7;}
-      .stack { background-color: #152732;OPACITY: 0.7;}
-      .blogger {background-color: #F5D344;OPACITY: 0.7;}
-      #new_user INPUT {HEIGHT: 40PX}
-      .fyp {margin-top: 3em}
-      h1,h2,label,p {color:#ffffff;}
-      .links a {color:#ffffff;}
+      .github, .stack, .blogger {
+          min-height: 175px;
+          MARGIN-BOTTOM: 1em;
+      }
+
+      .github {
+          background-color: #eA3A3A;
+          OPACITY: 0.7;
+      }
+
+      .stack {
+          background-color: #152732;
+          OPACITY: 0.7;
+      }
+
+      .blogger {
+          background-color: #F5D344;
+          OPACITY: 0.7;
+      }
+
+      #new_user INPUT {
+          height: 40px;
+      }
+
+      .fyp {
+          margin-top: 3em;
+      }
+
+      h1, h2, label, p {
+          color: #ffffff;
+      }
+
+      .links a {
+          color: #ffffff;
+      }
   </style>
 
 </head>
 <body style="background-color: #FE6F00 ">
+<div class="container">
+  <div class="row-fluid">
+    <div class="col-md-8">
+      <h1>KnacK</h1>
 
-<div class="row-fluid">
-  <div class="col-md-8">
-    <h1>KnacK</h1>
-    <div class="col-md-12 github" >
-      <h2>GitHub</h2>
-      <p>GitHub is a web-based hosting service for software development projects that use the Git revision control system. GitHub offers both paid plans for private repositories, and free accounts for open source projects. As of May 2011, GitHub was the most popular code repository site for open source projects. </p>
+      <div class="col-md-12 github">
+        <h2>GitHub</h2>
+
+        <p>GitHub is a web-based hosting service for software development projects that use the Git revision control
+          system. GitHub offers both paid plans for private repositories, and free accounts for open source projects. As
+          of May 2011, GitHub was the most popular code repository site for open source projects. </p>
+      </div>
+      <div class="col-md-12 stack">
+        <h2>StackOverFlow</h2>
+
+        <p>Stack Overflow is a question and answer site for professional and enthusiast programmers. It's built and run
+          by
+          you as part of the Stack Exchange network of Q&A sites. With your help, we're working together to build a
+          library of detailed answers to every question about programming. </p>
+      </div>
+      <div class="col-md-12 blogger">
+        <h2>GoogleBlogger</h2>
+
+        <p>Google Blogger helps you with the basics of creating your own blog, but you want your blog to reflect your
+          personality, don’t you? Well, templates that you can use and adapt as your creativity dictates can be the
+          launching pad for a blog site that is uniquely you.</p>
+      </div>
     </div>
-    <div class="col-md-12 stack" >
-      <h2>StackOverFlow</h2>
-      <p>Stack Overflow is a question and answer site for professional and enthusiast programmers. It's built and run by you as part of the Stack Exchange network of Q&A sites. With your help, we're working together to build a library of detailed answers to every question about programming. </p>
-    </div>
-    <div class="col-md-12 blogger" >
-      <h2>GoogleBlogger</h2>
-      <p>Google Blogger helps you with the basics of creating your own blog, but you want your blog to reflect your personality, don’t you? Well, templates that you can use and adapt as your creativity dictates can be the launching pad for a blog site that is uniquely you.</p>
+
+    <div class="col-md-4 fyp">
+      <h2>Forgot your password?</h2>
+
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:method => :post}) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div><%= f.label :email %>
+            <br/>
+            <%= f.email_field :email, :autofocus => true %></div>
+
+          <div><%= f.submit "Send me reset password instructions" %></div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
     </div>
   </div>
-
-  <div class="col-md-4 fyp" >
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
- </div>
 </div>
-
 </body>
 </html>
