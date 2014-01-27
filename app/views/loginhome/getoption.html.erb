@@ -18,6 +18,11 @@
     <a href="#blogger" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GBlogger</a>
     <a href="#contact" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
     <%= link_to "Signout", destroy_user_session_path, :method => :GET %>
+    <% if !current_user.email.empty? %>
+        <%= current_user.email %>
+    <% else %>
+            Guest
+    <% end %>
   </div>
 </div>
 

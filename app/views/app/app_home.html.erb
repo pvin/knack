@@ -4,72 +4,37 @@
   <meta charset="utf-8"/>
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   <style>
-
-      @font-face {
-          font-family: 'groboldregular';
-          src: url('/assets/title/grobold-webfont.eot');
-          src: url('/assets/title/grobold-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/assets/title/grobold-webfont.woff') format('woff'),
-          url('/assets/title/grobold-webfont.ttf') format('truetype'),
-          url('/assets/title/grobold-webfont.svg#groboldregular') format('svg');
-          font-weight: normal;
-          font-style: normal;
-
+      body{
+          background-color: #1175BF;
       }
-
-      @font-face {
-          font-family: 'abstrasctikregular';
-          src: url('/assets/next/abstrasctik-webfont.eot');
-          src: url('/assets/next/abstrasctik-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/assets/next/abstrasctik-webfont.woff') format('woff'),
-          url('/assets/next/abstrasctik-webfont.ttf') format('truetype'),
-          url('/assets/next/abstrasctik-webfont.svg#abstrasctikregular') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
-
-      @font-face {
-          font-family: 'a_sensible_armadilloregular';
-          src: url('/assets/para/a_sensible_armadillo-webfont.eot');
-          src: url('/assets/para/a_sensible_armadillo-webfont.eot?#iefix') format('embedded-opentype'),
-          url('/assets/para/a_sensible_armadillo-webfont.woff') format('woff'),
-          url('/assets/para/a_sensible_armadillo-webfont.ttf') format('truetype'),
-          url('/assets/para/a_sensible_armadillo-webfont.svg#a_sensible_armadilloregular') format('svg');
-          font-weight: normal;
-          font-style: normal;
-
-      }
-
 
       .grow {
           margin-top: 15em;
       }
-      .container {min-height:600px}
 
+                                                                                 X
       .title {
-          height: 150px;
-          margin-top: -20px;
-          background: #000000;
-          opacity: 0.5;
-      }
+          margin-top: 40px;
+          }
       .title h1 {
-          font-family: 'groboldregular';
+          font-family: 'Nunito';
           font-size: 92px;
       }
 
       .content {
-          height: 175px;
-          margin-top: 230px;
-          background: #000000;
-          opacity: 0.5;
-          position: absolute;
-          bottom: 0;
+
+
       }
 
       .content p {
-          font-family: 'a_sensible_armadilloregular';
+          font-family: 'Exo 2';
           font-size: 42px;
+          padding-bottom: 1.5em;
+          padding-top: 1em;
+          line-height: 40px;
       }
 
 
@@ -79,30 +44,47 @@
       }
 
       .container {
-          width: 100% !important;
+
       }
 
       a.next {
            font-family: 'abstrasctikregular';
            font-size: 42px;
-           position:fixed;
-           top:400px;
-           right:620px;
+
+
            text-decoration: none;
           color:#333333;
        }
       a.next:hover {text-decoration: none ; color:#909090 ;}
+
 
       h1 :hover {text-decoration: none ;color: #D0D0D0 ;}
 
       h1 a{
           color:#ffffff;
       }
-          .slogan { font-family: 'a_sensible_armadilloregular'; font-size: 40px; color:#fff;
-          position: relative; top:-20px;text-align: center;}
+          .slogan { font-family: 'Nunito'; font-size: 25px; color:#fff;
+          position: relative; top:-20px;text-align: center; left:40px;}
           .marquee{
               background-color: #ffffff !important;color: #000000;position: absolute;bottom: 0;font-family:groboldregular;
           }
+          .custom-btn {
+              background-color: #FFFFFF;
+              color: #1175BF;
+              font-size: 24px;
+              padding: 0.5em 3em;
+              min-width: 315px;
+              border-radius: 0;
+              margin-bottom:0.5em;
+              text-transform: uppercase;
+          }
+      .custom-btn:hover {
+          background-color:  #1175BF;
+          color: #fff;
+          border:3px solid #fff;
+
+
+      }
   </style>
 
 </head>
@@ -113,29 +95,38 @@
     <h1><a href="/users/sign_in">KnacK</a></h1>
     <h5 class="slogan">The Right Hire</h5>
   </div>
-  <div>
 
-  </div>
-    <a href="/users/sign_in" class = "next">Try</a>
+
 
 
   <div class="content">
     <p>Knack is about coder skill set reporter. KnacK use websites like Github, StackOverflow and Blogger to generate coder
       contribution</p>
+
+  </div>
+
+
+
+  <center><a class="btn btn-primary custom-btn" href="/users/sign_in" class = "next">Get Started</a>  </center>
+    <center><a class="btn btn-primary custom-btn" class = "next" data-toggle="modal" data-target="#myModal">Sample</a>  </center>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Sample Document</h4>
+        </div>
+        <div class="modal-body">
+          <%= image_tag("sample.jpg", :alt => "Sample Document", :height => '430', :width => '530') %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
   <marquee class= "marquee">powered by Git,Stack,Overflow and blogger.</marquee>
-</div>
-<script src="/assets/jquery.js"></script>
-<script src="/assets/jquery.backstretch.js"></script>
-<script>
-    $.backstretch([
-        "/assets/banner1-blur.png",
-        "/assets/banner2-blur.png",
-        "/assets/banner3-blur.png"
-    ], {
-        fade: 750,
-        duration: 3000
-    });
-</script>
 </body>
 </html>
