@@ -6,126 +6,203 @@
   <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <style>
+  body{
+      background-color: #1175bf;
+  }
+
+  </style>
 </head>
 
 <body>
 
 <div id="header">
   <div id="nav">
-    <a href="#home" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Home</a>
-    <a href="#github" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GitHub</a>
-    <a href="#sof" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">StackOverFlow</a>
-    <a href="#blogger" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GBlogger</a>
-    <a href="#contact" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
-    <%= link_to "Signout", destroy_user_session_path, :method => :GET %>
-    <% if !current_user.email.empty? %>
-        <%= current_user.email %>
-    <% else %>
-            Guest
-    <% end %>
+
+    <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GitHub</a>
+    <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">StackOverFlow</a>
+    <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GBlogger</a>
+    <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">BitBucket</a>
+    <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">CloudForge</a>
+    <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Linkedin</a>
+    <a href="#" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
+
+    <%= link_to 'Signout', destroy_user_session_path,{:style => 'color: #FFFFFF',:class => "signout"}, :method => :GET %>
+
   </div>
 </div>
 
-<div id="page-wrap">
-  <div id="page0" style="height:500px"><a name="home"></a></div>
+<div class="container">
 
 
-  <div id="page1">
-    <div class="container">
-      <a name="github"></a>
+  <a name="rowone"></a>
+  <div class="page-padding"></div>
 
-      <div class="page-padding"></div>
-      <div class="col-md-6">
-        <%= image_tag("github-logo.png", :alt => "github", :height => '430', :width => '340') %>
+  <div class="col-md-4">
+    <div id="page1" class="github">
+
+        <h1 class="github-title">Github</h1>
+
+
+      <div class="content"><p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and nested model forms. </p> </div>
+      <form class="form-inline" role="form" style="text-align: center">
+        <div class="form-group" >
+          <input type="text" name="fname" class="textfiled-git" placeholder="GitHub User Name">
+        </div>
+        <div class="buttons">
+            <button type="reset" class="button-one" style="text-align: center">Reset</button>
+             &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+
+
+      <div class="power">
+      <p style="text-align: center">Powered by GitHub</p>
       </div>
-      <div class="col-md-6">
 
-        <form name="form" method="post" action="git_consumer">
-          <h1>GitHub</h1>
-          <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
-            <td width="30%">GitHub User Name:<br/></td>
-            <td><input type="text" size=25 maxlength=20 name="gitname"></td>
-            <tr>
-              <td><input type="Reset">
-              <td><input type="submit" value="Submit">
-            </tr>
-          </table>
-        </form>
-      </div>
     </div>
-
   </div>
+
   <!--END page1-->
 
-  <div id="page2">
-    <div class="container">
-      <a name="sof"></a>
+  <div class="col-md-4">
+    <div id="page1" class="sof">
 
-      <div class="page-padding"></div>
-      <div class="col-md-6">
-        <form name="form" method="post" action="sof_consumer.pdf">
-          <h1>Stack Over Flow</h1>
-          <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
-            <td width="30%">Stack Over Flow Id:<br/></td>
-            <td><input type="text" size=25 maxlength=20 name="firstName"></td>
-            <tr>
-              <td><input type="Reset">
-              <td><input type="submit" value="Submit">
-            </tr>
-          </table>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag("sof-logo.png", :alt => "stackoverflow", :height => '430', :width => '340') %>
+      <h1 class="sof-title">stackoflow</h1>
+
+      <div class="content"><p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+      <form class="form-inline" name="form" style="text-align: center" method="post" action="sof_consumer.pdf">
+        <div class="form-group">
+          <input type="text" name="name" class="textfiled-git" placeholder="Stack Overflow User Name">
+        </div>
+        <div class="buttons">
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+      <div class="power">
+        <p style="text-align: center">Powered by stackoverflow</p>
       </div>
     </div>
   </div>
+
+
   <!--END page2-->
+  <div class="col-md-4">
+    <div id="page1" class="blogger">
 
-  <div id="page3">
-    <div class="container">
-      <a name="blogger"></a>
+      <h1 class="blogger-title">blogger</h1>
 
-      <div class="page-padding"></div>
-      <div class="col-md-6">
-        <%= image_tag("blogger-logo.png", :alt => "blogger", :height => '430', :width => '340') %>
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+      <form class="form-inline" role="form" style="text-align: center">
+        <div class="form-group">
+          <input type="text" name="fname" class="textfiled-git" placeholder="GitHub User Name">
+        </div>
+        <div class="buttons">
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+
+
+      <div class="power">
+        <p style="text-align: center">Powered by Blogger</p>
       </div>
-      <div class="col-md-6">
 
-        <form name="form" method="post" action="blog_consumer">
-          <h1>Blogger</h1>
-          <table width="100%" height="100%" bgcolor="#E0F8F7" align="center">
-            <td width="30%">G Blogger Id:<br/></td>
-            <td><input type="text" size=25 maxlength=20 name="blogid"></td>
-            <tr>
-              <td><input type="Reset">
-              <td><input type="submit" value="Submit">
-            </tr>
-          </table>
-        </form>
-      </div>
-    </div>
-
-  </div>
-  <!--END page3-->
-
-  <div id="page4">
-    <div class="container">
-      <a name="contact"></a>
-
-      <div class="page-padding"></div>
-      <div class="col-md-6">
-
-      </div>
-      <div class="col-md-6">
-
-      </div>
     </div>
   </div>
-  <!--END page4-->
+  <div class="page-padding"></div>
 
-</div>
-<!--END page-wrap-->
+
+  <div class="col-md-4">
+    <div id="page2" class = "bitbucket">
+      <a name="rowtwo"></a>
+      <h1 class="bitbucket-title">BitBucket</h1>
+
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+      <form class="form-inline" name="form" style="text-align: center" method="post" action="bit_b_consumer.pdf">
+        <div class="form-group">
+          <input type="text" name="name" class="textfiled-git" placeholder="Bit Bucket User Name">
+        </div>
+        <div class="buttons">
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+      <div class="power">
+        <p style="text-align: center">Powered by Bit Bucket</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!--END page1-->
+  <div class="col-md-4">
+    <div id="page2" class = "cloud_forge">
+
+      <h1 class="cloudforge-title">Cloud Forge</h1>
+
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+      <form class="form-inline" name="form" style="text-align: center" method="post" action="cloud_forge_consumer.pdf">
+        <div class="form-group">
+          <input type="text" name="name" class="textfiled-git" placeholder="Cloud Forge User Name">
+        </div>
+        <div class="buttons">
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+      <div class="power">
+        <p style="text-align: center">Powered by Cloud Forge</p>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!--END page2-->
+  <div class="col-md-4">
+    <div id="page2" class = "linkedin">
+
+      <h1 class="linkedin-title">Linked in</h1>
+
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+      <form class="form-inline" name="form" style="text-align: center" method="post" action="linked_in_consumer.pdf">
+        <div class="form-group">
+          <input type="text" name="name" class="textfiled-git" placeholder="Linkedin User Name">
+        </div>
+        <div class="buttons">
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
+        </div>
+      </form>
+      <div class="power">
+        <p style="text-align: center">Powered by Linkedin</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  </div>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>$(document).ready(function () {

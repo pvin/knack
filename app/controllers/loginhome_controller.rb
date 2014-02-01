@@ -8,14 +8,13 @@ class LoginhomeController < ApplicationController
   end
 
   def sof_consumer
-    @firstname = request["firstName"]
-    @response = self.class.get("/users/#{@firstname}")
+    @name = request["name"]
+    @response = self.class.get("/users/#{@name}")
     test = @response["users"][0]["display_name"]
     respond_to do |format|
       format.html
       format.pdf do
         pdf = Prawn::Document.new
-
         logopath = "public/pie-chart-1.png"
         pdf.image logopath, :width => 197, :height => 120
 
@@ -69,5 +68,18 @@ class LoginhomeController < ApplicationController
     puts '-----------------'
 
   end
+
+  def bit_b_consumer
+
+  end
+
+  def cloud_forge_consumer
+
+  end
+
+  def linked_in_consumer
+
+  end
+
 
 end
