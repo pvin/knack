@@ -70,7 +70,14 @@ class LoginhomeController < ApplicationController
   end
 
   def bit_b_consumer
-
+    @name = request["name"]
+    puts '++++++++++'
+    puts @name
+    puts '++++++++++'
+    response = HTTParty.get("https://bitbucket.org/api/1.0/users/#{@name}")
+    puts '-----------------'
+    puts response.body
+    puts '-----------------'
   end
 
   def cloud_forge_consumer
