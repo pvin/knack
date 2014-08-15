@@ -17,13 +17,21 @@ class LoginhomeController < ApplicationController
     @user_answer = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/answers?order=desc&sort=activity&site=stackoverflow")
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
+    if @user_answer["items"] != nil
     @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}"}
+    else
+      @user_answer["items"] = nil
+    end
 
     #/users/{ids}/questions
     @user_question = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/questions?order=desc&sort=activity&site=stackoverflow")
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
-    @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}"}
+    if @user_question["items"] != nil
+      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}"}
+    else
+      @user_question["items"] = nil
+    end
 
     #/users/{id}/network-activity
     @user_network_activity = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/network-activity")
@@ -32,32 +40,40 @@ class LoginhomeController < ApplicationController
     #/users/{ids}/reputation-history
     @user_reputation_history = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/reputation-history?site=stackoverflow")
     @user_reputation_array = Array.new()
-    @user_reputation_history["items"].each { |repu| @user_reputation_array << repu["reputation_change"] }
+    if @user_reputation_history["items"] != nil
+      @user_reputation_history["items"].each { |repu| @user_reputation_array << repu["reputation_change"] }
+    else
+      @user_reputation_history["items"] = nil
+    end
 
     #/users/{ids}/tags
     @user_tags = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/tags?order=desc&sort=popular&site=stackoverflow")
     @user_tags_info_hash = Hash.new()
-    @user_tags["items"].each { |tag| @user_tags_info_hash["#{tag["name"]}"] = tag["count"]}
+    if @user_tags["items"] != nil
+      @user_tags["items"].each { |tag| @user_tags_info_hash["#{tag["name"]}"] = tag["count"]}
+    else
+      @user_tags["items"] = nil
+    end
 
     #/users/{ids}/associated
     @user_association = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/associated")
     @user_association_hash = Hash.new()
-    @user_association["items"].each { |asso| @user_association_hash["#{asso["site_name"]}"] = asso["reputation"] }
+    if @user_association["items"] != nil
+      @user_association["items"].each { |asso| @user_association_hash["#{asso["site_name"]}"] = asso["reputation"] }
+    else
+      @user_association["items"] = nil
+    end
 
     #/users/{ids}/timeline
     @user_timeline = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/timeline?site=stackoverflow")
     @user_timeline_count = @user_timeline["items"].count
-
-    puts '+++'
-              puts @user_association
-    puts '+++'
 
     respond_to do |format|
       format.html
       format.pdf do
         pdf = Prawn::Document.new
         @logopath = "public/pie-chart-1.png"
-        @user_image = "#{@user_info["items"][0]["profile_image"]}"
+        #@user_image = "#{@user_info["items"][0]["profile_image"]}"
         pdf.image @logopath, :width => 197, :height => 120
         #pdf.image open (@user_image)
         pdf.fill_color "0066FF"
@@ -139,14 +155,68 @@ class LoginhomeController < ApplicationController
   end
 
   def blog_consumer
-    @blog_id = request["blogid"]
-    puts '++++++++++'
-    puts @blog_id
-    puts '++++++++++'
-    response = HTTParty.get('https://www.googleapis.com/blogger/v3/blogs/3891960319537892971/posts?key=******')
-    puts '-----------------'
-    puts response.body
-    puts '-----------------'
+    @blogger_id = request["bloggerid"]
+
+    #Retrieving a blog
+    @blog_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
+
+    #Retrieving posts from a blog
+    @post_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}/posts?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
+    @post_comm_hash = Hash.new()
+
+    if @post_details['items'] != nil
+      @post_details['items'].each { |obj| @post_comm_hash["#{obj['title']}"] = ["#{obj['replies']['totalItems']}"] }
+    else
+      @post_comm_hash = nil
+    end
+
+    #Retrieving pages for a blog
+    @page_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}/pages?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
+    @page_array = Array.new()
+    if @page_details['items'] != nil
+      @page_details['items'].each { |obj| @page_array << obj['title'] }
+    else
+      @page_array = nil
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        @logopath = "public/pie-chart-1.png"
+        #@user_image = "#{@user_info["items"][0]["profile_image"]}"
+        pdf.image @logopath, :width => 197, :height => 120
+        #pdf.image open (@user_image)
+        pdf.fill_color "0066FF"
+        pdf.font_size 42
+        pdf.text_box "Knack Reports", :align => :right
+
+        pdf.move_down 20
+        pdf.font_size 14
+        #pdf.text "Below generated report for Google Blogger user #{@user_info["items"][0]["display_name"]}"
+
+        pdf.move_down 20
+        to_show = [
+            #Retrieving a blog
+            ["Blog Id", "#{@blog_details['id']}"],
+            ["Blog Name", "#{@blog_details['name']}"],
+            ["Blog Url", "#{@blog_details['url']}"],
+            ["Number of Posts", "#{@blog_details['posts']['totalItems']}"],
+            ["Number of Pages", "#{@blog_details['pages']['totalItems']}"],
+            ["Language", "#{@blog_details['locale']['language']}"] ,
+
+           #Retrieving posts from a blog
+           ["Title and Comments(last 10 blogs)", "#{@post_comm_hash}"],
+
+           #Retrieving pages for a blog
+           ["Pages", "#{@page_array}"]
+        ]
+        pdf.table(to_show) do |table|
+          table.rows(1..2).width = 270
+        end
+        send_data pdf.render, type: "application/pdf", disposition: "inline"
+      end
+    end
 
   end
 
