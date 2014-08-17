@@ -7,7 +7,7 @@ gem 'httparty'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 gem 'sqlite3'
-gem 'github_api'
+#gem 'github_api'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'prawn'

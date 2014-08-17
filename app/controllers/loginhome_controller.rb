@@ -147,11 +147,109 @@ class LoginhomeController < ApplicationController
   end
 
   def git_consumer
-    @name = request["gitname"]
-    @hash_values=Github.repos.list user: "#{@name}", repo:'-Contactform'
-    puts '============================'
-    puts     @hash_values.length
-    puts '============================'
+
+    @github_user_name = request["name"]
+
+    #Retrieving a github details
+    @github_details = HTTParty.get("https://api.github.com/users/#{@github_user_name}?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf",:headers =>{"User-Agent" => "#{@github_user_name}"} )
+
+    #organizations work
+    @org_url = @github_details['organizations_url']
+    @org_array =  Array.new()
+    @org_name_array = Array.new()
+    @org_array = HTTParty.get("#{@org_url}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+    if @org_array != nil
+      @org_array.each { |name| @org_name_array << name['login']}
+    else
+      @org_array = nil
+    end
+
+    # detailed repo info
+    @repo_info_link = @github_details['repos_url']
+    @repo_info_array = Array.new()
+    @repo_info_array = HTTParty.get("#{@repo_info_link}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+    @repo_req_info_array = Array.new()
+    if @repo_info_array != nil
+      @repo_info_array.each { |repo_info| @repo_req_info_array << "repo name : #{repo_info['name']},
+                                                                   repo_url : #{repo_info['html_url']},
+                                                                   repo description : #{repo_info['description']},
+                                                                   forked? : #{repo_info['fork']},
+                                                                   Stargazers Count : #{repo_info['stargazers_count']},
+                                                                   Watchers Count : #{repo_info['watchers_count']},
+                                                                   Forks Count : #{repo_info['forks_count']},
+                                                                   Watchers : #{repo_info['watchers']},
+                                                                   Language : #{repo_info['language']},
+                                                                   Created At : #{repo_info['created_at']},
+                                                                   Updated At : #{repo_info['updated_at']},
+                                                                   Pushed At :#{repo_info['pushed_at']}"
+                              #contributions list
+                              @repo_contributor = Array.new()
+                              @repo_contributor_details = Array.new()
+                              @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+                              @repo_contributor.each { |info| @repo_contributor_details << "login : #{info['login']},
+                                                                    contributions : #{info['contributions']}"   }
+                                           @repo_req_info_array << "Contributors Url :#{@repo_contributor_details}"
+
+                              #commits details
+                              @repo_commits_url_process = repo_info['commits_url'].gsub('{/sha}','')
+                              @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+                              @repo_commits_count = JSON.parse(@repo_commits_details.body).count
+                              @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
+                             }
+    else
+      @repo_info_array = nil
+    end
+
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        @logopath = "public/pie-chart-1.png"
+        #@user_image = "#{@user_info["items"][0]["profile_image"]}"
+        pdf.image @logopath, :width => 197, :height => 120
+        #pdf.image open (@user_image)
+        pdf.fill_color "0066FF"
+        pdf.font_size 42
+        pdf.text_box "Knack Reports", :align => :right
+
+        pdf.move_down 20
+        pdf.font_size 14
+        pdf.text "Below generated report for Github user #{@github_details['login']}"
+
+        pdf.move_down 20
+        to_show = [
+            #Retrieving a github details
+            ["Login", "#{@github_details['login']}"],
+            ["Name", "#{@github_details['name']}"],
+            ["Email Id", "#{@github_details['email']}"],
+            ["Location", "#{@github_details['location']}"],
+            ["Login Id", "#{@github_details['id']}"],
+            ["Image Url", "#{@github_details['avatar_url']}"],
+            ["Company Name", "#{@github_details['company']}"],
+            ["User Site", "#{@github_details['blog']}"],
+            ["Github Account Url", "#{@github_details['html_url']}"],
+            ["Followers", "#{@github_details['followers']}"],
+            ["Following", "#{@github_details['following']}"],
+            ["Public Gists Count", "#{@github_details['public_gists']}"],
+            ["Public Repositories Count", "#{@github_details['public_repos']}"],
+            ["Hireable Status", "#{@github_details['hireable']}"],
+            ["Account Created On", "#{@github_details['created_at']}"],
+            ["Account Updated On", "#{@github_details['updated_at']}"],
+
+            #organizations work
+            ["Organization List","#{@org_name_array}"],
+
+            #detailed repo info
+            ["Detailed Repo Info","#{@repo_req_info_array}"]
+
+        ]
+        pdf.table(to_show) do |table|
+          table.rows(1..2).width = 270
+        end
+        send_data pdf.render, type: "application/pdf", disposition: "inline"
+      end
+     end
   end
 
   def blog_consumer
@@ -193,7 +291,7 @@ class LoginhomeController < ApplicationController
 
         pdf.move_down 20
         pdf.font_size 14
-        #pdf.text "Below generated report for Google Blogger user #{@user_info["items"][0]["display_name"]}"
+        pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
 
         pdf.move_down 20
         to_show = [
@@ -214,6 +312,9 @@ class LoginhomeController < ApplicationController
         pdf.table(to_show) do |table|
           table.rows(1..2).width = 270
         end
+        puts ')))'
+        puts @post_comm_hash
+        puts ')))'
         send_data pdf.render, type: "application/pdf", disposition: "inline"
       end
     end
