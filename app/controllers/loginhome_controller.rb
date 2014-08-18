@@ -4,7 +4,7 @@ class LoginhomeController < ApplicationController
   include HTTParty
   #base_uri "http://api.stackexchange.com/2.2"
   def getoption
-
+      #test
   end
 
   def sof_consumer
