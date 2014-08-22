@@ -1,8 +1,10 @@
 #require 'open-uri'
+require "net/https"
+require "uri"
 class LoginhomeController < ApplicationController
 
   include HTTParty
-  #base_uri "http://api.stackexchange.com/2.2"
+
   def getoption
       #test
   end
@@ -167,7 +169,8 @@ class LoginhomeController < ApplicationController
     # detailed repo info
     @repo_info_link = @github_details['repos_url']
     @repo_info_array = Array.new()
-    @repo_info_array = HTTParty.get("#{@repo_info_link}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+    @repo_info_array = HTTParty.get("#{@repo_info_link}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
+                                    :headers =>{"User-Agent" => "#{@github_user_name}"})
     @repo_req_info_array = Array.new()
     if @repo_info_array != nil
       @repo_info_array.each { |repo_info| @repo_req_info_array << "repo name : #{repo_info['name']},
@@ -182,20 +185,29 @@ class LoginhomeController < ApplicationController
                                                                    Created At : #{repo_info['created_at']},
                                                                    Updated At : #{repo_info['updated_at']},
                                                                    Pushed At :#{repo_info['pushed_at']}"
+
                               #contributions list
                               @repo_contributor = Array.new()
                               @repo_contributor_details = Array.new()
-                              @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
-                              @repo_contributor.each { |info| @repo_contributor_details << "login : #{info['login']},
-                                                                    contributions : #{info['contributions']}"   }
-                                           @repo_req_info_array << "Contributors Url :#{@repo_contributor_details}"
+                              @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+
+                                                                   '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
+                                                               :headers =>{"User-Agent" => "#{@github_user_name}"})
+                              @repo_contributor_count = JSON.parse(@repo_contributor.body).count if @repo_contributor.code == 200
+                              @repo_contributor_count = "#{@repo_contributor_count}"+'+' if @repo_contributor_count >=30
+                              @repo_req_info_array << "Contributors Count :#{@repo_contributor_count}"
 
                               #commits details
                               @repo_commits_url_process = repo_info['commits_url'].gsub('{/sha}','')
-                              @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+                              @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+
+                                                                       '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
+                                                                   :headers =>{"User-Agent" => "#{@github_user_name}"})
                               @repo_commits_count = JSON.parse(@repo_commits_details.body).count
+                              @repo_commits_count = "#{@repo_commits_count}"+'+' if @repo_commits_count >=30
                               @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
                              }
+                            puts '++++'
+                            puts  @repo_req_info_array
+                            puts '++++'
     else
       @repo_info_array = nil
     end
