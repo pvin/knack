@@ -1,9 +1,11 @@
-#require 'open-uri'
 require "net/https"
 require "uri"
+require './lib/pdf_generator/pdf_generator.rb'
+
 class LoginhomeController < ApplicationController
 
   include HTTParty
+  include PdfGenerator
 
   def getoption
       #test
@@ -73,76 +75,7 @@ class LoginhomeController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = Prawn::Document.new
-        @logopath = "public/pie-chart-1.png"
-        #@user_image = "#{@user_info["items"][0]["profile_image"]}"
-        pdf.image @logopath, :width => 197, :height => 120
-        #pdf.image open (@user_image)
-        pdf.fill_color "0066FF"
-        pdf.font_size 42
-        pdf.text_box "Knack Reports", :align => :right
-
-        pdf.move_down 20
-        pdf.font_size 14
-        pdf.text "Below generated report for stack overflow user #{@user_info["items"][0]["display_name"]}"
-
-        pdf.move_down 20
-        to_show = [
-                   #/users/{ids}
-
-                   ["User Id", "#{@user_info["items"][0]["user_id"]}"],
-                   ["Display Name", "#{@user_info["items"][0]["display_name"]}"],
-                   ["Location", "#{@user_info["items"][0]["location"]}"],
-                   ["Last modified Date", "#{@user_info["items"][0]["last_modified_date"]}"],
-                   ["Last Access Date", "#{@user_info["items"][0]["last_access_date"]}"],
-                   ["Reputation Change In a Current Year", "#{@user_info["items"][0]["reputation_change_year"]}"],
-                   ["Reputation Change In a Current Quarter", "#{@user_info["items"][0]["reputation_change_quarter"]}"],
-                   ["Reputation Change In a Current Month", "#{@user_info["items"][0]["reputation_change_month"]}"],
-                   ["Reputation Change In a Current Week", "#{@user_info["items"][0]["reputation_change_week"]}"],
-                   ["Reputation Change In a Current Day", "#{@user_info["items"][0]["reputation_change_day"]}"],
-                   ["Over All Reputation", "#{@user_info["items"][0]["reputation"]}"],
-                   ["Personal Website Url", "#{@user_info["items"][0]["website_url"]}"],
-                   ["SOF Link", "#{@user_info["items"][0]["link"]}"],
-                   ["Image Link", "#{@user_info["items"][0]["profile_image"]}"],
-                   ["User Gold Badge", "#{@user_info["items"][0]["badge_counts"]["gold"]}"],
-                   ["User Silver Badge", "#{@user_info["items"][0]["badge_counts"]["silver"]}"],
-                   ["User Bronze Badge", "#{@user_info["items"][0]["badge_counts"]["bronze"]}"],
-
-                   #/users/{ids}/answers
-
-                   ["User Answer Count", "#{@user_answer_count}"],    
-                   ["Link to the answers", "#{@answer_collect}"],
-
-                   #/users/{ids}/questions
-
-                   ["User Question Count", "#{@user_question_count}"],
-                   ["Link to the questions", "#{@question_collect}"],
-
-                   #/users/{id}/network-activity
-                   # have details about edit, post etc.. except accepted answer
-                   ["User Network Activity Count(Stack Exchange network, ex:stack overflow,Ask Ubuntu etc..)", "#{@user_network_activity_count}"],
-
-                   #/users/{ids}/reputation-history
-
-                   ["User Reputation History", "#{@user_reputation_array}"],
-
-                   #/users/{ids}/tags
-
-                   ["User Tags and Discussion Count", "#{@user_tags_info_hash}"],
-
-                   #/users/{ids}/associated
-
-                   ["User Association and Reputation", "#{@user_association_hash}"],
-
-                   #/users/{ids}/timeline
-
-                   ["User Actions in Stackoverflow(answered, commented, revision, accepted  etc..)", "#{@user_timeline_count}"]
-
-        ]
-        pdf.table(to_show) do |table|
-          table.rows(1..2).width = 270
-        end
-        send_data pdf.render, type: "application/pdf", disposition: "inline"
+        sf_pdf_responder
       end
     end
 
@@ -205,61 +138,14 @@ class LoginhomeController < ApplicationController
                               @repo_commits_count = "#{@repo_commits_count}"+'+' if @repo_commits_count >=30
                               @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
                              }
-                            puts '++++'
-                            puts  @repo_req_info_array
-                            puts '++++'
+
     else
       @repo_info_array = nil
     end
-
-
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = Prawn::Document.new
-        @logopath = "public/pie-chart-1.png"
-        #@user_image = "#{@user_info["items"][0]["profile_image"]}"
-        pdf.image @logopath, :width => 197, :height => 120
-        #pdf.image open (@user_image)
-        pdf.fill_color "0066FF"
-        pdf.font_size 42
-        pdf.text_box "Knack Reports", :align => :right
-
-        pdf.move_down 20
-        pdf.font_size 14
-        pdf.text "Below generated report for Github user #{@github_details['login']}"
-
-        pdf.move_down 20
-        to_show = [
-            #Retrieving a github details
-            ["Login", "#{@github_details['login']}"],
-            ["Name", "#{@github_details['name']}"],
-            ["Email Id", "#{@github_details['email']}"],
-            ["Location", "#{@github_details['location']}"],
-            ["Login Id", "#{@github_details['id']}"],
-            ["Image Url", "#{@github_details['avatar_url']}"],
-            ["Company Name", "#{@github_details['company']}"],
-            ["User Site", "#{@github_details['blog']}"],
-            ["Github Account Url", "#{@github_details['html_url']}"],
-            ["Followers", "#{@github_details['followers']}"],
-            ["Following", "#{@github_details['following']}"],
-            ["Public Gists Count", "#{@github_details['public_gists']}"],
-            ["Public Repositories Count", "#{@github_details['public_repos']}"],
-            ["Hireable Status", "#{@github_details['hireable']}"],
-            ["Account Created On", "#{@github_details['created_at']}"],
-            ["Account Updated On", "#{@github_details['updated_at']}"],
-
-            #organizations work
-            ["Organization List","#{@org_name_array}"],
-
-            #detailed repo info
-            ["Detailed Repo Info","#{@repo_req_info_array}"]
-
-        ]
-        pdf.table(to_show) do |table|
-          table.rows(1..2).width = 270
-        end
-        send_data pdf.render, type: "application/pdf", disposition: "inline"
+        git_pdf_responder
       end
      end
   end
@@ -292,6 +178,26 @@ class LoginhomeController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
+        blog_pdf_responder
+      end
+    end
+
+  end
+
+  def bit_b_consumer
+    @name = request["name"]
+    # puts '++++++++++'
+    # puts @name
+    # puts '++++++++++'
+    # response = HTTParty.get("https://bitbucket.org/api/1.0/users/#{@name}")
+    # puts '-----------------'
+    # puts response.body
+    # puts '-----------------'
+    #
+
+    respond_to do |format|
+      format.html
+      format.pdf do
         pdf = Prawn::Document.new
         @logopath = "public/pie-chart-1.png"
         #@user_image = "#{@user_info["items"][0]["profile_image"]}"
@@ -303,45 +209,33 @@ class LoginhomeController < ApplicationController
 
         pdf.move_down 20
         pdf.font_size 14
-        pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
+       # pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
 
         pdf.move_down 20
-        to_show = [
-            #Retrieving a blog
-            ["Blog Id", "#{@blog_details['id']}"],
-            ["Blog Name", "#{@blog_details['name']}"],
-            ["Blog Url", "#{@blog_details['url']}"],
-            ["Number of Posts", "#{@blog_details['posts']['totalItems']}"],
-            ["Number of Pages", "#{@blog_details['pages']['totalItems']}"],
-            ["Language", "#{@blog_details['locale']['language']}"] ,
+        # to_show = [
+        #     #Retrieving a blog
+        #     ["Blog Id", "#{@blog_details['id']}"],
+        #     ["Blog Name", "#{@blog_details['name']}"],
+        #     ["Blog Url", "#{@blog_details['url']}"],
+        #     ["Number of Posts", "#{@blog_details['posts']['totalItems']}"],
+        #     ["Number of Pages", "#{@blog_details['pages']['totalItems']}"],
+        #     ["Language", "#{@blog_details['locale']['language']}"] ,
+        #
+        #     #Retrieving posts from a blog
+        #     ["Title and Comments(last 10 blogs)", "#{@post_comm_hash}"],
+        #
+        #     #Retrieving pages for a blog
+        #     ["Pages", "#{@page_array}"]
+        # ]
+        # pdf.table(to_show) do |table|
+        #   table.rows(1..2).width = 270
+        # end
 
-           #Retrieving posts from a blog
-           ["Title and Comments(last 10 blogs)", "#{@post_comm_hash}"],
-
-           #Retrieving pages for a blog
-           ["Pages", "#{@page_array}"]
-        ]
-        pdf.table(to_show) do |table|
-          table.rows(1..2).width = 270
-        end
-        puts ')))'
-        puts @post_comm_hash
-        puts ')))'
         send_data pdf.render, type: "application/pdf", disposition: "inline"
       end
     end
 
-  end
 
-  def bit_b_consumer
-    @name = request["name"]
-    puts '++++++++++'
-    puts @name
-    puts '++++++++++'
-    response = HTTParty.get("https://bitbucket.org/api/1.0/users/#{@name}")
-    puts '-----------------'
-    puts response.body
-    puts '-----------------'
   end
 
   def cloud_forge_consumer
