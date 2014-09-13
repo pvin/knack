@@ -10,7 +10,7 @@ Knack::Application.routes.draw do
   match 'loginhome/git_consumer'
   match 'loginhome/blog_consumer'
   match 'loginhome/bit_b_consumer'
-
+ 
 
 
   # The priority is based upon order of creation:

@@ -74,6 +74,8 @@ GEM
       multi_json (>= 1.0.0)
       signet (~> 0.4.5)
       uuidtools (>= 2.1.0)
+    gruff (0.5.1)
+      rmagick
     hashery (2.1.1)
     hike (1.2.3)
     httparty (0.11.0)
@@ -142,6 +144,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rmagick (2.13.3)
     ruby-rc4 (0.1.5)
     sass (3.2.12)
     sass-rails (3.2.6)
@@ -192,6 +195,7 @@ DEPENDENCIES
   devise
   execjs
   google-api-client
+  gruff
   httparty
   jquery-rails
   prawn

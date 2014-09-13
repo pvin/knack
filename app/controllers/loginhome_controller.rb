@@ -1,6 +1,10 @@
-require "net/https"
-require "uri"
+#require "net/https"
+#require "uri"
+# require 'prawn'
+# require 'gchart'
+# require 'open-uri'
 require './lib/pdf_generator/pdf_generator.rb'
+
 
 class LoginhomeController < ApplicationController
 
@@ -245,6 +249,5 @@ class LoginhomeController < ApplicationController
   def linked_in_consumer
 
   end
-
 
 end

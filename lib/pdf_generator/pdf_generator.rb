@@ -193,6 +193,48 @@ module PdfGenerator
     pdf.text "User Actions in Stackoverflow(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
     pdf.move_down 10
 
+    #graph generation using gruff bar for reputation
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Reputation graph'
+    bar_graph.maximum_value = 50
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 10
+    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.write('public/gruff_graph/sof_reputation.png')
+    @graph = 'public/gruff_graph/sof_reputation.png'
+    pdf.image @graph, :width => 550, :height => 690
+
+    #graph generation using gruff bar for User Reputation History
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Reputation History graph'
+    bar_graph.maximum_value = 10
+    bar_graph.minimum_value = -10
+    bar_graph.y_axis_increment = 2
+    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.write('public/gruff_graph/sof_reputation_history.png')
+    @graph = 'public/gruff_graph/sof_reputation_history.png'
+    pdf.image @graph, :width => 550, :height => 690
+
+    #graph generation using gruff bar for badge and qa
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Badge & QA graph'
+    bar_graph.maximum_value = 10
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 5
+    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
+    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
+    bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
+    bar_graph.write('public/gruff_graph/sof_badge_qa.png')
+    @graph = 'public/gruff_graph/sof_badge_qa.png'
+    pdf.image @graph, :width => 550, :height => 690
+
     send_data pdf.render, type: "application/pdf", disposition: "inline"
 
   end
