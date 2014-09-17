@@ -37,6 +37,18 @@ module PdfGenerator
     pdf.text "Pages : #{@page_array}"
     pdf.move_down 10
 
+    #graph generation using gruff bar for blog count
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Number of posts & pages graph'
+    bar_graph.maximum_value = 10
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 5
+    bar_graph.data('Number of posts',["#{@blog_details['posts']['totalItems']}".to_i])
+    bar_graph.data('Number of pages',["#{@blog_details['pages']['totalItems']}".to_i])
+    bar_graph.write("public/gruff_graph/num_posts_pages_#{@blog_details['id']}.png")
+    @graph = "public/gruff_graph/num_posts_pages_#{@blog_details['id']}.png"
+    pdf.image @graph, :width => 550, :height => 690
+
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 

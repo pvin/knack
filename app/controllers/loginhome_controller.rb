@@ -23,105 +23,20 @@ class LoginhomeController < ApplicationController
         sof_pdf_responder
       end
     end
-
   end
 
   def git_consumer
-
-    @github_user_name = request["name"]
-
-    #Retrieving a github details
-    @github_details = HTTParty.get("https://api.github.com/users/#{@github_user_name}?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf",:headers =>{"User-Agent" => "#{@github_user_name}"} )
-
-    #organizations work
-    @org_url = @github_details['organizations_url']
-    @org_array =  Array.new()
-    @org_name_array = Array.new()
-    @org_array = HTTParty.get("#{@org_url}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
-    if @org_array != nil
-      @org_array.each { |name| @org_name_array << name['login']}
-    else
-      @org_array = nil
-    end
-
-    # detailed repo info
-    @repo_info_link = @github_details['repos_url']
-    @repo_info_array = Array.new()
-    @repo_info_array = HTTParty.get("#{@repo_info_link}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                    :headers =>{"User-Agent" => "#{@github_user_name}"})
-    @repo_req_info_array = Array.new()
-    if @repo_info_array != nil
-      @repo_info_array.each { |repo_info| @repo_req_info_array << "repo name : #{repo_info['name']},
-                                                                   repo_url : #{repo_info['html_url']},
-                                                                   repo description : #{repo_info['description']},
-                                                                   forked? : #{repo_info['fork']},
-                                                                   Stargazers Count : #{repo_info['stargazers_count']},
-                                                                   Watchers Count : #{repo_info['watchers_count']},
-                                                                   Forks Count : #{repo_info['forks_count']},
-                                                                   Watchers : #{repo_info['watchers']},
-                                                                   Language : #{repo_info['language']},
-                                                                   Created At : #{repo_info['created_at']},
-                                                                   Updated At : #{repo_info['updated_at']},
-                                                                   Pushed At :#{repo_info['pushed_at']}"
-
-                              #contributions list
-                              @repo_contributor = Array.new()
-                              @repo_contributor_details = Array.new()
-                              @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+
-                                                                   '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                                               :headers =>{"User-Agent" => "#{@github_user_name}"})
-                              @repo_contributor_count = JSON.parse(@repo_contributor.body).count if @repo_contributor.code == 200
-                              @repo_contributor_count = "#{@repo_contributor_count}"+'+' if @repo_contributor_count >=30
-                              @repo_req_info_array << "Contributors Count :#{@repo_contributor_count}"
-
-                              #commits details
-                              @repo_commits_url_process = repo_info['commits_url'].gsub('{/sha}','')
-                              @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+
-                                                                       '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                                                   :headers =>{"User-Agent" => "#{@github_user_name}"})
-                              @repo_commits_count = JSON.parse(@repo_commits_details.body).count
-                              @repo_commits_count = "#{@repo_commits_count}"+'+' if @repo_commits_count >=30
-                              @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
-                             }
-
-    else
-      @repo_info_array = nil
-    end
+    git_content_processor
     respond_to do |format|
-      format.html
       format.pdf do
         git_pdf_responder
       end
-     end
+    end
   end
 
   def blog_consumer
-    @blogger_id = request["bloggerid"]
-
-    #Retrieving a blog
-    @blog_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
-
-    #Retrieving posts from a blog
-    @post_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}/posts?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
-    @post_comm_hash = Hash.new()
-
-    if @post_details['items'] != nil
-      @post_details['items'].each { |obj| @post_comm_hash["#{obj['title']}"] = ["#{obj['replies']['totalItems']}"] }
-    else
-      @post_comm_hash = nil
-    end
-
-    #Retrieving pages for a blog
-    @page_details = HTTParty.get("https://www.googleapis.com/blogger/v3/blogs/#{@blogger_id}/pages?key=AIzaSyCmyA7TS_PMW-E42L4Fg75Lz5RZpaSpA5A")
-    @page_array = Array.new()
-    if @page_details['items'] != nil
-      @page_details['items'].each { |obj| @page_array << obj['title'] }
-    else
-      @page_array = nil
-    end
-
+    gblogger_content_processor
     respond_to do |format|
-      format.html
       format.pdf do
         blog_pdf_responder
       end
@@ -154,7 +69,7 @@ class LoginhomeController < ApplicationController
 
         pdf.move_down 20
         pdf.font_size 14
-       # pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
+        # pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
 
         pdf.move_down 20
         # to_show = [
