@@ -100,7 +100,7 @@ module PdfGenerator
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
-  def sf_pdf_responder
+  def sof_pdf_responder
 
     pdf = Prawn::Document.new
     @logopath = "public/pie-chart-1.png"
@@ -205,8 +205,8 @@ module PdfGenerator
     bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
     bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
     bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
-    bar_graph.write('public/gruff_graph/sof_reputation.png')
-    @graph = 'public/gruff_graph/sof_reputation.png'
+    bar_graph.write("public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}.png")
+    @graph = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}.png"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for User Reputation History
@@ -216,8 +216,8 @@ module PdfGenerator
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
     bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
-    bar_graph.write('public/gruff_graph/sof_reputation_history.png')
-    @graph = 'public/gruff_graph/sof_reputation_history.png'
+    bar_graph.write("public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}.png")
+    @graph = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}.png"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
@@ -231,8 +231,8 @@ module PdfGenerator
     bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
-    bar_graph.write('public/gruff_graph/sof_badge_qa.png')
-    @graph = 'public/gruff_graph/sof_badge_qa.png'
+    bar_graph.write("public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}.png")
+    @graph = "public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}.png"
     pdf.image @graph, :width => 550, :height => 690
 
     send_data pdf.render, type: "application/pdf", disposition: "inline"
