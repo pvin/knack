@@ -109,6 +109,18 @@ module PdfGenerator
     #detailed repo info
     pdf.text "Detailed Repo Info : #{@repo_req_info_array}"
 
+    #graph generation using gruff bar for github
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Number of Public Gists & Public Repositories'
+    bar_graph.maximum_value = 10
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 5
+    bar_graph.data('Number of Public Gists',["#{@github_details['public_gists']}".to_i])
+    bar_graph.data('Number of Public Repositories',["#{@github_details['public_repos']}".to_i])
+    bar_graph.write("public/gruff_graph/git_#{@github_details['login']}.png")
+    @graph = "public/gruff_graph/git_#{@github_details['login']}.png"
+    pdf.image @graph, :width => 550, :height => 690
+
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
