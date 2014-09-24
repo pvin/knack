@@ -1,8 +1,3 @@
-#require "net/https"
-#require "uri"
-# require 'prawn'
-# require 'gchart'
-# require 'open-uri'
 require './lib/pdf_generator/pdf_generator.rb'
 require './lib/content_generator/content_generator'
 

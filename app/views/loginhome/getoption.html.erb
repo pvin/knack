@@ -99,24 +99,24 @@
       <div class="content">
         <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
-      <form class="form-inline" role="form" style="text-align: center" method="post" action="blog_consumer.pdf">
+      <form class="form-inline" id="form" role="form" style="text-align: center" method="post" action="blog_consumer.pdf">
         <div class="form-group">
           <input type="text" name="bloggerid" class="textfiled-git" placeholder="Blogger Id">
         </div>
         <div class="buttons">
           <button type="reset" class="button-one" style="text-align: center">Reset</button>
-          &nbsp; &nbsp; &nbsp;
-          <button type="submit" class="button-two">Submit</button>
+          <button type="submit" id="submit" class="button-two">Submit</button>
+        </div>
+        <div id="loading">
+          <%=link_to (image_tag "load.gif")%>
         </div>
       </form>
-
-
       <div class="power">
         <p style="text-align: center">Powered by Blogger</p>
       </div>
-
     </div>
   </div>
+
   <div class="page-padding"></div>
 
 
@@ -229,6 +229,14 @@
         }
     });
 });
+</script>
+<script type="text/javascript">
+    (function (d) {
+        d.getElementById('form').onsubmit = function () {
+            d.getElementById('submit').style.display = 'block';
+            d.getElementById('loading').style.display = 'block';
+        };
+    }(document));
 </script>
 
 </body>
