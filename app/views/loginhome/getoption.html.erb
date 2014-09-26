@@ -7,9 +7,9 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <style>
-  body{
-      background-color: #1175bf;
-  }
+      body {
+          background-color: #1175bf;
+      }
 
   </style>
 </head>
@@ -27,7 +27,7 @@
     <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Linkedin</a>
     <a href="#" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
 
-    <%= link_to 'Signout', destroy_user_session_path,{:style => 'color: #FFFFFF',:class => "signout"}, :method => :GET %>
+    <%= link_to 'Signout', destroy_user_session_path, {:style => 'color: #FFFFFF', :class => "signout"}, :method => :GET %>
 
   </div>
 </div>
@@ -36,29 +36,33 @@
 
 
   <a name="rowone"></a>
+
   <div class="page-padding"></div>
 
   <div class="col-md-4">
     <div id="page1" class="github">
 
-        <h1 class="github-title">Github</h1>
+      <h1 class="github-title">Github</h1>
 
 
-      <div class="content"><p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and nested model forms. </p> </div>
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+          nested model forms. </p></div>
+
       <form class="form-inline" role="form" style="text-align: center" method="post" action="git_consumer.pdf">
-        <div class="form-group" >
+        <div class="form-group">
           <input type="text" name="name" class="textfiled-git" placeholder="GitHub User Name">
         </div>
         <div class="buttons">
-            <button type="reset" class="button-one" style="text-align: center">Reset</button>
-             &nbsp; &nbsp; &nbsp;
-            <button type="submit" class="button-two">Submit</button>
+          <button type="reset" class="button-one" style="text-align: center">Reset</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="submit" class="button-two">Submit</button>
         </div>
       </form>
 
 
       <div class="power">
-      <p style="text-align: center">Powered by GitHub</p>
+        <p style="text-align: center">Powered by GitHub</p>
       </div>
 
     </div>
@@ -68,11 +72,12 @@
 
   <div class="col-md-4">
     <div id="page1" class="sof">
-
       <h1 class="sof-title">stackoverflow</h1>
 
-      <div class="content"><p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
+      <div class="content">
+        <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
+
       <form class="form-inline" name="form" style="text-align: center" method="post" action="sof_consumer.pdf">
         <div class="form-group">
           <input type="text" name="user_id" class="textfiled-git" placeholder="Stack Overflow User Id">
@@ -83,6 +88,7 @@
           <button type="submit" class="button-two">Submit</button>
         </div>
       </form>
+
       <div class="power">
         <p style="text-align: center">Powered by stackoverflow</p>
       </div>
@@ -99,6 +105,7 @@
       <div class="content">
         <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
+
       <form class="form-inline" id="form" role="form" style="text-align: center" method="post" action="blog_consumer.pdf">
         <div class="form-group">
           <input type="text" name="bloggerid" class="textfiled-git" placeholder="Blogger Id">
@@ -107,10 +114,8 @@
           <button type="reset" class="button-one" style="text-align: center">Reset</button>
           <button type="submit" id="submit" class="button-two">Submit</button>
         </div>
-        <div id="loading">
-          <%=link_to (image_tag "load.gif")%>
-        </div>
       </form>
+
       <div class="power">
         <p style="text-align: center">Powered by Blogger</p>
       </div>
@@ -121,13 +126,15 @@
 
 
   <div class="col-md-4">
-    <div id="page2" class = "bitbucket">
+    <div id="page2" class="bitbucket">
       <a name="rowtwo"></a>
+
       <h1 class="bitbucket-title">BitBucket</h1>
 
       <div class="content">
         <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
+
       <form class="form-inline" name="form" style="text-align: center" method="post" action="">
         <div class="form-group">
           <input type="text" name="name" class="textfiled-git" placeholder="Bit Bucket User Name">
@@ -138,6 +145,7 @@
           <button type="submit" class="button-two">Submit</button>
         </div>
       </form>
+
       <div class="power">
         <p style="text-align: center">Powered by Bit Bucket</p>
       </div>
@@ -148,13 +156,14 @@
 
   <!--END page1-->
   <div class="col-md-4">
-    <div id="page2" class = "cloud_forge">
+    <div id="page2" class="cloud_forge">
 
       <h1 class="cloudforge-title">Cloud Forge</h1>
 
       <div class="content">
         <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
+
       <form class="form-inline" name="form" style="text-align: center" method="post" action="cloud_forge_consumer.pdf">
         <div class="form-group">
           <input type="text" name="name" class="textfiled-git" placeholder="Cloud Forge User Name">
@@ -165,6 +174,7 @@
           <button type="submit" class="button-two">Submit</button>
         </div>
       </form>
+
       <div class="power">
         <p style="text-align: center">Powered by Cloud Forge</p>
       </div>
@@ -176,13 +186,14 @@
 
   <!--END page2-->
   <div class="col-md-4">
-    <div id="page2" class = "linkedin">
+    <div id="page2" class="linkedin">
 
       <h1 class="linkedin-title">Linked in</h1>
 
       <div class="content">
         <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
           nested model forms. </p></div>
+
       <form class="form-inline" name="form" style="text-align: center" method="post" action="linked_in_consumer.pdf">
         <div class="form-group">
           <input type="text" name="name" class="textfiled-git" placeholder="Linkedin User Name">
@@ -193,6 +204,7 @@
           <button type="submit" class="button-two">Submit</button>
         </div>
       </form>
+
       <div class="power">
         <p style="text-align: center">Powered by Linkedin</p>
       </div>
@@ -201,7 +213,7 @@
     </div>
   </div>
 
-  </div>
+</div>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
@@ -229,14 +241,7 @@
         }
     });
 });
-</script>
-<script type="text/javascript">
-    (function (d) {
-        d.getElementById('form').onsubmit = function () {
-            d.getElementById('submit').style.display = 'block';
-            d.getElementById('loading').style.display = 'block';
-        };
-    }(document));
+
 </script>
 
 </body>
