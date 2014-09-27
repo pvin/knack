@@ -7,6 +7,8 @@ class LoginhomeController < ApplicationController
   include PdfGenerator
   include ContentGenerator
 
+  before_filter :authenticate_user!
+
   def getoption
 
   end
