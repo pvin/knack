@@ -24,8 +24,6 @@
 }
 
 #page1 {
-
-
     padding: 10px;
     min-height: 500px;
     background-image:  url('/assets/tile.png');
@@ -92,23 +90,17 @@ a:hover { text-decoration:underline;}
 
 }
 
-
-
-.buttons{
-    padding-bottom: 1em;
-    padding-top: 1em;
-}
-
-.button-one,.button-two{
-    background-color: #333333;
-    border: 0 none;
-    color: #FFFFFF;
+button{
+    background-color: #000000;
+    color: #ffffff;
     padding: 0.5em 2em;
 }
+
 .button-one {
     float:left;
     margin-left: 17px;
 }
+
 .button-two {
     float:right;
     margin-right: 17px;
@@ -130,7 +122,7 @@ a:hover { text-decoration:underline;}
     padding-top: .5em;
     padding-bottom: .5em;
 }
-
+/*need to remove*/
 .textfiled-git{
     border: 0 none;
     box-shadow: 2px 3px 3px #999999;
@@ -139,6 +131,29 @@ a:hover { text-decoration:underline;}
     width: 90%;
 }
 
+#bloggerid{
+    border: 0 none;
+    box-shadow: 2px 3px 3px #999999;
+    height: 50px;
+    padding: 0.5em 2em;
+    width: 90%;
+}
+
+#user_id{
+    border: 0 none;
+    box-shadow: 2px 3px 3px #999999;
+    height: 50px;
+    padding: 0.5em 2em;
+    width: 90%;
+}
+
+#name{
+    border: 0 none;
+    box-shadow: 2px 3px 3px #999999;
+    height: 50px;
+    padding: 0.5em 2em;
+    width: 90%;
+}
 .power{
     padding-right: .2em;
     padding-left: .2em;
