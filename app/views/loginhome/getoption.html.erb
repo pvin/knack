@@ -41,7 +41,7 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('git_consumer.pdf', method: :post) do %>
             <div class="form-group">
-              <div><%= text_field_tag 'name', nil, placeholder: 'GitHub User Name' %> </div>
+              <div><%= text_field_tag 'name', nil, placeholder: 'GitHub User Name', :required => true %> </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
@@ -70,7 +70,8 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('sof_consumer.pdf', method: :post) do %>
             <div class="form-group">
-              <div><%= text_field_tag 'user_id', nil, placeholder: 'Stack Overflow User Id' %> </div>
+              <div><%= text_field_tag 'user_id', nil, placeholder: 'Stack Overflow User Id', :required => true,
+                                      :pattern => '^\d{6}$' %> </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
@@ -100,7 +101,8 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('blog_consumer.pdf', method: :post) do %>
             <div class="form-group">
-              <div><%= text_field_tag 'bloggerid', nil, placeholder: 'Blogger Id' %> </div>
+              <div><%= text_field_tag 'bloggerid', nil, placeholder: 'Blogger Id', :required => true,
+                                      :pattern => '^\d{19}$' %> </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
