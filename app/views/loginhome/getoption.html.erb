@@ -41,7 +41,7 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('git_consumer.pdf', method: :post) do %>
             <div class="form-group">
-              <div><%= text_field_tag 'name', nil, placeholder: 'GitHub User Name', :required => true %> </div>
+              <div><%= text_field_tag 'git_name', nil, placeholder: 'GitHub User Name', :required => true %> </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
@@ -71,7 +71,7 @@
         <%= form_tag('sof_consumer.pdf', method: :post) do %>
             <div class="form-group">
               <div><%= text_field_tag 'user_id', nil, placeholder: 'Stack Overflow User Id', :required => true,
-                                      :pattern => '^\d{6}$' %> </div>
+                                      :pattern => '^\d{7}$' %> </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
