@@ -62,7 +62,7 @@ module ContentGenerator
   end
 
   def git_content_processor
-    @github_user_name = request["name"]
+    @github_user_name = request["git_name"]
 
     #Retrieving a github details
     @github_details = HTTParty.get("https://api.github.com/users/#{@github_user_name}?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf",:headers =>{"User-Agent" => "#{@github_user_name}"} )
@@ -99,23 +99,25 @@ module ContentGenerator
                                                                    Pushed At :#{repo_info['pushed_at']}"
 
       #contributions list
-      @repo_contributor = Array.new()
-      @repo_contributor_details = Array.new()
-      @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+
-                                           '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                       :headers =>{"User-Agent" => "#{@github_user_name}"})
-      @repo_contributor_count = JSON.parse(@repo_contributor.body).count if @repo_contributor.code == 200
-      @repo_contributor_count = "#{@repo_contributor_count}"+'+' if @repo_contributor_count >=30
-      @repo_req_info_array << "Contributors Count :#{@repo_contributor_count}"
-
-      #commits details
-      @repo_commits_url_process = repo_info['commits_url'].gsub('{/sha}','')
-      @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+
-                                               '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                           :headers =>{"User-Agent" => "#{@github_user_name}"})
-      @repo_commits_count = JSON.parse(@repo_commits_details.body).count
-      @repo_commits_count = "#{@repo_commits_count}"+'+' if @repo_commits_count >=30
-      @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
+      # @repo_contributor = Array.new()
+      # @repo_contributor_details = Array.new()
+      # @repo_contributor = HTTParty.get("#{repo_info['contributors_url']}"+
+      #                                      '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
+      #                                  :headers =>{"User-Agent" => "#{@github_user_name}"})
+      # puts "*4#{@repo_contributor}++"
+      # @repo_contributor_count = JSON.parse(@repo_contributor.body).count if @repo_contributor.code == 200
+      # @repo_contributor_count = "#{@repo_contributor_count}"+'+' if @repo_contributor_count >=30
+      # @repo_req_info_array << "Contributors Count :#{@repo_contributor_count}"
+      #
+      # #commits details
+      # @repo_commits_url_process = repo_info['commits_url'].gsub('{/sha}','')
+      # @repo_commits_details = HTTParty.get("#{@repo_commits_url_process}"+
+      #                                          '?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
+      #                                      :headers =>{"User-Agent" => "#{@github_user_name}"})
+      # puts "*5#{@repo_commits_details}++"
+      # @repo_commits_count = JSON.parse(@repo_commits_details.body).count
+      # @repo_commits_count = "#{@repo_commits_count}"+'+' if @repo_commits_count >=30
+      # @repo_req_info_array << "Commits Count :#{@repo_commits_count}"
       }
 
     else
