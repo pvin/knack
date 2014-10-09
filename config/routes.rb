@@ -1,6 +1,6 @@
 Knack::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #root :to => 'sof#consumer'
   root :to => 'app#app_home'
   match 'loginhome/getoption'
@@ -12,6 +12,11 @@ Knack::Application.routes.draw do
   match 'loginhome/bit_b_consumer'
   match "*path" => redirect("/")
 
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  devise_scope :users do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

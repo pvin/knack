@@ -14,7 +14,7 @@ gem 'prawn'
 gem "prawnto_2", :require => "prawnto"
 gem "google-api-client"
 gem 'gruff'
-
+gem 'omniauth-facebook'
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'sass-rails',   '~> 3.2.3'
