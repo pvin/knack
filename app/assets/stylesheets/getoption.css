@@ -6,7 +6,7 @@
     top:0px;
     left:0px;
     background:#1175BF;
-    height:70px;
+    height:110px;
     width:100%;
 }
 
@@ -146,7 +146,6 @@ button{
     padding: 0.5em 2em;
     width: 90%;
 }
-
 #name{
     border: 0 none;
     box-shadow: 2px 3px 3px #999999;
