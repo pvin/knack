@@ -10,9 +10,14 @@ Knack::Application.routes.draw do
   match 'loginhome/git_consumer'
   match 'loginhome/blog_consumer'
   match 'loginhome/bit_b_consumer'
+
+
+  #contact form routing
+  match 'message' => 'message#new', :as => 'message', :via => :get
+  match 'message' => 'message#create', :as => 'message', :via => :post
+
+
   match "*path" => redirect("/")
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

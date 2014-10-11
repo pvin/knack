@@ -12,19 +12,28 @@
   </style>
 </head>
 <body>
+
 <div id="header">
   <div id="nav">
+    <div><h1><%= link_to "KnacK", '/' %> </h1></div>
     <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GitHub</a>
     <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">StackOverFlow</a>
     <a href="#rowone" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">GBlogger</a>
     <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">BitBucket</a>
     <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">CloudForge</a>
     <a href="#rowtwo" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Linkedin</a>
-    <a href="#" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
+    <a href="/message" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
     <%= link_to 'Signout', destroy_user_session_path, {:style => 'color: #FFFFFF', :class => "signout"}, :method => :GET %>
   </div>
 </div>
+
 <div class="container">
+
+  <% if flash[:success] %>
+        <div class="alert alert-success"><%= flash[:success]%></div>
+  <% end %>
+
+
   <a name="rowone"></a>
 
   <div class="page-padding"></div>

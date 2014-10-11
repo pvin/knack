@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <style>
+      #new_message INPUT {
+          height: 40px;
+          width: 350px;
+      }
+
+      h1, label {
+          color: #ffffff;
+      }
+      h3{
+          color: #ffffff;
+          text-align: center;
+      }
+      h1 a {
+          color: #ffffff;
+      }
+
+      .links a {
+          color: #ffffff;
+      }
+
+      .col-md-5 h2 {
+          color: #ffffff;
+      }
+
+      .contact {
+          display: inline-block;
+      }
+
+      .label_align {
+          font-size: 100%;
+          float: right;
+          clear: both;
+      }
+       .head{
+           text-align: right;
+       }
+       .back p{
+           text-align: right;
+           color: #ffffff;
+      }
+       p{
+           color: #ffffff;
+       }
+      .page-header{
+            text-align: right;
+      }
+  </style>
+</head>
+
+<body style="background-color:#1175BF ">
+
+<div class="container">
+  <div class="col-md-5 contact">
+    <h2>Contact form</h2>
+    <%= form_for @message, :url => message_path do |form| %>
+
+        <% if flash[:error] %>
+            <div class="alert alert-warning"><%= flash[:error] %></div>
+        <% end %>
+        <% @message.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
+
+        <fieldset class="fields">
+          <div class="field">
+            <div class="label_align"><%= form.label :name %></div>
+            <%= form.text_field :name, :autofocus => true %>
+          </div>
+
+          <div class="field">
+            <div class="label_align"><%= form.label :email %></div>
+            <%= form.text_field :email %>
+          </div>
+          <div class="field">
+            <div class="label_align"><%= form.label :subject %></div>
+            <%= form.text_field :subject %>
+          </div>
+
+          <div class="field">
+            <div class="label_align"><%= form.label :body %></div>
+            <%= form.text_area :body %>
+          </div>
+        </fieldset>
+
+        <fieldset class="actions">
+          <%= form.submit "Send" %>
+        </fieldset>
+    <% end %>
+  </div>
+  <div class="col-md-7 contact">
+    <div class="head"><h1><%= link_to "KnacK", '/' %> </h1></div>
+    <div class="back"><p><%= link_to "past", '/loginhome/getoption' %></p></div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Upcoming works</h1>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="https://www.blogger.com/features">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a class="thumbnail" href="#">
+          <img class="img-responsive" src="/assets/blogger1.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+</html>
