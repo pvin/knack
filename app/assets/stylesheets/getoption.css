@@ -175,4 +175,47 @@ button{
     text-align: center;
     width: 94%;
 }
+.helper_image_git img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
+}
 
+.helper_image_sof img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
+}
+
+.helper_image_gblog img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
+}
+
+#Style_sof {
+    position: absolute;
+    visibility: hidden;
+    border: solid 1px #CCC;
+    padding: 5px;
+}
+
+#Style_blog {
+    position: absolute;
+    visibility: hidden;
+    border: solid 1px #CCC;
+    padding: 5px;
+}
+
+#Style_git {
+    position: absolute;
+    visibility: hidden;
+    border: solid 1px #CCC;
+    padding: 5px;
+}

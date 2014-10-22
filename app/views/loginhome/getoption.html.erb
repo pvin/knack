@@ -50,7 +50,12 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('git_consumer.pdf', method: :post) do %>
             <div class="form-group">
-              <div><%= text_field_tag 'git_name', nil, placeholder: 'GitHub User Name', :required => true %> </div>
+              <div class="helper_image_git"><img onMouseOver="ShowPicture('Style_git',1)" onMouseOut="ShowPicture('Style_git',0)"
+                                                 alt="Rails" src="/assets/Help-icon.png" title="github account name"/>
+              </div>
+              <div id="Style_git"><img src="/assets/github_id_ref.jpg"></div>
+              <div><%= text_field_tag 'git_name', nil, placeholder: 'GitHub User Name', :required => true %>
+              </div>
             </div>
             <div class="buttons">
               <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
@@ -79,6 +84,10 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('sof_consumer.pdf', method: :post) do %>
             <div class="form-group">
+              <div class="helper_image_sof"><img onMouseOver="ShowPicture('Style_sof',1)" onMouseOut="ShowPicture('Style_sof',0)"
+                                               alt="Rails" src="/assets/Help-icon.png" title="Login into sof to get user id"/>
+              </div>
+              <div id="Style_sof"><img src="/assets/sof_id_ref.jpg"></div>
               <div><%= text_field_tag 'user_id', nil, placeholder: 'Stack Overflow User Id', :required => true,
                                       :pattern => '^\d{7}$' %> </div>
             </div>
@@ -110,6 +119,10 @@
       <div class="form-inline" style="text-align: center">
         <%= form_tag('blog_consumer.pdf', method: :post) do %>
             <div class="form-group">
+              <div class="helper_image_gblog"><img onMouseOver="ShowPicture('Style_blog',1)" onMouseOut="ShowPicture('Style_blog',0)"
+                                              alt="Rails" src="/assets/Help-icon.png" title="google blogger user id"/>
+              </div>
+              <div id="Style_blog"><img src="/assets/gblog_id_ref.jpg"></div>
               <div><%= text_field_tag 'bloggerid', nil, placeholder: 'Blogger Id', :required => true,
                                       :pattern => '^\d{19}$' %> </div>
             </div>
@@ -217,7 +230,6 @@
 
     </div>
   </div>
-
 </div>
 
 
@@ -246,6 +258,24 @@
         }
     });
 });
+
+</script>
+
+<!--mouse on image show image script-->
+<script>
+function ShowPicture(id,Source) {
+if (Source=="1"){
+if (document.layers) document.layers[''+id+''].visibility = "show"
+else if (document.all) document.all[''+id+''].style.visibility = "visible"
+else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "visible"
+}
+else
+if (Source=="0"){
+if (document.layers) document.layers[''+id+''].visibility = "hide"
+else if (document.all) document.all[''+id+''].style.visibility = "hidden"
+else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "hidden"
+}
+}
 
 </script>
 
