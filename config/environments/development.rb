@@ -35,6 +35,6 @@ Knack::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'sleepy-peak-6931.herokuapp.com' }
 
 end

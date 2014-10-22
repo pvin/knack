@@ -99,7 +99,6 @@ GEM
     multi_json (1.8.2)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    mysql2 (0.3.16)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -110,6 +109,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pg (0.17.1)
     polyglot (0.3.3)
     prawn (0.13.0)
       afm
@@ -198,7 +198,7 @@ DEPENDENCIES
   gruff
   httparty
   jquery-rails
-  mysql2
+  pg
   prawn
   prawnto_2
   rails (= 3.2.13)

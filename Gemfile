@@ -7,7 +7,7 @@ gem 'capistrano'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem 'mysql2'
+#gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'prawn'
@@ -21,6 +21,7 @@ gem 'sass-rails',   '~> 3.2.3'
 group :assets do
 
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'pg'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
