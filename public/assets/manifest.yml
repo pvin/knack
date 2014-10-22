@@ -37,6 +37,8 @@ title/grobold-webfont.woff: title/grobold-webfont-be2ec90f989f0f39eda3ee522f77a3
 title/grobold-webfont/index.woff: title/grobold-webfont-be2ec90f989f0f39eda3ee522f77a34a.woff
 GitHub1.png: GitHub1-77f94e1a60d9f98130d04f27b72d9113.png
 GitHub1/index.png: GitHub1-77f94e1a60d9f98130d04f27b72d9113.png
+Help-icon.png: Help-icon-1b2873c7be35ee829f5e1f6442ddbd43.png
+Help-icon/index.png: Help-icon-1b2873c7be35ee829f5e1f6442ddbd43.png
 blogger-logo-1.png: blogger-logo-1-c11fd54afeb4071fcff11cff14ae4abd.png
 blogger-logo-1/index.png: blogger-logo-1-c11fd54afeb4071fcff11cff14ae4abd.png
 blogger1.png: blogger1-7c873d5ac15532966c45e835b2b852e2.png
@@ -47,6 +49,10 @@ cloudforge1.png: cloudforge1-5f1a52dd33fa8cc6806ac5a9940dda75.png
 cloudforge1/index.png: cloudforge1-5f1a52dd33fa8cc6806ac5a9940dda75.png
 favicon.ico: favicon-d16bd1732a5d1002194b61a37b5460eb.ico
 favicon/index.ico: favicon-d16bd1732a5d1002194b61a37b5460eb.ico
+gblog_id_ref.jpg: gblog_id_ref-8e2c85fbbc2b3da7f2d9600239b65157.jpg
+gblog_id_ref/index.jpg: gblog_id_ref-8e2c85fbbc2b3da7f2d9600239b65157.jpg
+github_id_ref.jpg: github_id_ref-75409e9adc011f334576f157b563d6a6.jpg
+github_id_ref/index.jpg: github_id_ref-75409e9adc011f334576f157b563d6a6.jpg
 linkedin1.png: linkedin1-ace6d65de29bd8097e8a66eef1843c63.png
 linkedin1/index.png: linkedin1-ace6d65de29bd8097e8a66eef1843c63.png
 load.gif: load-f363d66cf685f4e70414e3ec27c8d695.gif
@@ -59,12 +65,14 @@ sample.jpg: sample-6ebdba69cf8ac462a516bc176b762dee.jpg
 sample/index.jpg: sample-6ebdba69cf8ac462a516bc176b762dee.jpg
 sof1.png: sof1-4c5a0401040906d2b6e7d0b0ab348e90.png
 sof1/index.png: sof1-4c5a0401040906d2b6e7d0b0ab348e90.png
+sof_id_ref.jpg: sof_id_ref-2b0c8b773d3f2b42c5de1e8be34c7d06.jpg
+sof_id_ref/index.jpg: sof_id_ref-2b0c8b773d3f2b42c5de1e8be34c7d06.jpg
 tile.png: tile-318fe1437fd31534cb3f5bada575fe23.png
 tile/index.png: tile-318fe1437fd31534cb3f5bada575fe23.png
 application.js: application-3512ee5d2c5d3d00bd2e153cfedee1bc.js
 application/index.js: application-3512ee5d2c5d3d00bd2e153cfedee1bc.js
-application.css: application-c4f9ad7555eb1a63a7dd5f3c6f78b3d4.css
-application/index.css: application-c4f9ad7555eb1a63a7dd5f3c6f78b3d4.css
+application.css: application-0c37ffa0869c540a285a75b9916f4c12.css
+application/index.css: application-0c37ffa0869c540a285a75b9916f4c12.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-e76f5a754ccf64843a118a8706df3f8c.eot
