@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     sign_in_url = "http://sleepy-peak-6931.herokuapp.com/loginhome/getoption"
-    #sign_in_url = "http://localhost:3000/loginhome/getoption"
+    #sign_in_url = "/loginhome/getoption"
   end
 
   def set_no_cache
