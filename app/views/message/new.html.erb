@@ -7,7 +7,7 @@
   <style>
       #new_message INPUT {
           height: 40px;
-          width: 350px;
+          width: 352px;
       }
 
       h1, label {
@@ -60,10 +60,6 @@
   <div class="col-md-5 contact">
     <h2>Contact form</h2>
     <%= form_for @message, :url => message_path do |form| %>
-
-        <% if flash[:error] %>
-            <div class="alert alert-warning"><%= flash[:error] %></div>
-        <% end %>
         <% @message.errors.full_messages.each do |msg| %>
             <p><%= msg %></p>
         <% end %>

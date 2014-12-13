@@ -1,6 +1,7 @@
 require './lib/pdf_generator/pdf_generator.rb'
 require './lib/content_generator/content_generator'
 
+
 class LoginhomeController < ApplicationController
 
   include HTTParty
@@ -9,36 +10,43 @@ class LoginhomeController < ApplicationController
 
   before_filter :authenticate_user!
 
+  rescue_from CustomExceptions::HandleIfError, with: :getoption
+
   def getoption
-
-  end
-
-  def sof_consumer
-    sof_content_processor
-    respond_to do |format|
-      format.pdf do
-        sof_pdf_responder
-      end
-    end
+    render 'getoption.html.erb'
   end
 
   def git_consumer
-    git_content_processor
-    respond_to do |format|
-      format.pdf do
-        git_pdf_responder
-      end
+    begin
+      git_content_processor
+      git_pdf_responder
+    rescue Exception =>e
+      puts 'Exception at github starts * ' + e.message + ' for sof id ' + "#{@github_user_name}" + ' * end up here'
+      flash[:error] = "data not found."
+      raise CustomExceptions::HandleIfError
+    end
+  end
+
+  def sof_consumer
+    begin
+      sof_content_processor
+      sof_pdf_responder
+    rescue Exception =>e
+      puts 'Exception at SOF starts * ' + e.message + ' for sof id ' + "#{@user_id}" + ' * end up here'
+      flash[:error] = "data not found."
+      raise CustomExceptions::HandleIfError
     end
   end
 
   def blog_consumer
-    gblogger_content_processor
-    respond_to do |format|
-      format.pdf do
-        blog_pdf_responder
-      end
+    begin
+      gblogger_content_processor
+      blog_pdf_responder
+    rescue Exception =>e
+      puts 'Exception at gblog starts * ' + e.message + ' for sof id ' + "#{@blogger_id}" + ' * end up here'
+      flash[:error] = "data not found."
+      raise CustomExceptions::HandleIfError
     end
-
   end
 
   def bit_b_consumer
@@ -102,5 +110,4 @@ class LoginhomeController < ApplicationController
   def linked_in_consumer
 
   end
-
 end

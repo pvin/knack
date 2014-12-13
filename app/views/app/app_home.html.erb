@@ -18,11 +18,12 @@
 
 
       .title {
-          margin-top: 40px;
+          margin-top: 10px;
           }
       .title h1 {
           font-family: 'Nunito';
           font-size: 92px;
+          padding-right: 5em;
       }
 
       .content {
@@ -81,8 +82,10 @@
           background-color:  #1175BF;
           color: #fff;
           border:3px solid #fff;
-
-
+      }
+      .logo{
+          float:left;
+          padding-left: 22em;
       }
   </style>
 
@@ -91,6 +94,7 @@
 <div class="container">
 
   <div class = "title">
+    <div class="logo"><%= image_tag('logo_white.gif',:width => 130, :height => 110, :alt => "Icon") %></div>
     <h1><a href="/users/sign_in">KnacK</a></h1>
     <h5 class="slogan">The Right Hire</h5>
   </div>

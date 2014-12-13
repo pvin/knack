@@ -1,9 +1,9 @@
+require './lib/custom_exceptions/handle_if_error'
 class ApplicationController < ActionController::Base
+  include CustomExceptions
   protect_from_forgery
 
   before_filter :set_no_cache
-
-
 
   def after_sign_in_path_for(resource)
     sign_in_url = "http://knack-codebeats.herokuapp.com/loginhome/getoption"
