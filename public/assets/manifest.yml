@@ -57,6 +57,12 @@ linkedin1.png: linkedin1-ace6d65de29bd8097e8a66eef1843c63.png
 linkedin1/index.png: linkedin1-ace6d65de29bd8097e8a66eef1843c63.png
 load.gif: load-f363d66cf685f4e70414e3ec27c8d695.gif
 load/index.gif: load-f363d66cf685f4e70414e3ec27c8d695.gif
+logo_blue.gif: logo_blue-1cf1e6f2c24327143e375cc91257c917.gif
+logo_blue/index.gif: logo_blue-1cf1e6f2c24327143e375cc91257c917.gif
+logo_blue.jpg: logo_blue-ba91eda680721f81ba0f521d60d39b7c.jpg
+logo_blue/index.jpg: logo_blue-ba91eda680721f81ba0f521d60d39b7c.jpg
+logo_white.gif: logo_white-5107c4fa2dd0cf15d0fa449fbd88327f.gif
+logo_white/index.gif: logo_white-5107c4fa2dd0cf15d0fa449fbd88327f.gif
 pie-chart-1.png: pie-chart-1-2e52d066ee41836e760cf347eba96a03.png
 pie-chart-1/index.png: pie-chart-1-2e52d066ee41836e760cf347eba96a03.png
 report.png: report-78ed6d150e1e33c426b074d04ab3b591.png
@@ -71,8 +77,8 @@ tile.png: tile-318fe1437fd31534cb3f5bada575fe23.png
 tile/index.png: tile-318fe1437fd31534cb3f5bada575fe23.png
 application.js: application-3512ee5d2c5d3d00bd2e153cfedee1bc.js
 application/index.js: application-3512ee5d2c5d3d00bd2e153cfedee1bc.js
-application.css: application-0c37ffa0869c540a285a75b9916f4c12.css
-application/index.css: application-0c37ffa0869c540a285a75b9916f4c12.css
+application.css: application-449feb40a0d6c4b4acd663eeafc8f4f5.css
+application/index.css: application-449feb40a0d6c4b4acd663eeafc8f4f5.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-e76f5a754ccf64843a118a8706df3f8c.eot
