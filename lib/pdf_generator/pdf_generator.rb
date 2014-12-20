@@ -218,46 +218,50 @@ module PdfGenerator
       pdf.fill_color "0066FF"
       pdf.font_size 42
       pdf.text_box "Knack Reports", :align => :right
-
-      pdf.move_down 20
       pdf.font_size 14
-      pdf.text "Below generated report for Google Blogger user #{@blog_details['name']}"
-      pdf.move_down 20
+      item = [
+              "Below generated report for Google Blogger user #{@blog_details['name']}",
 
-      #Retrieving a blog
-      pdf.text "Blog Id : #{@blog_details['id']}"
-      pdf.move_down 10
-      pdf.text "Blog Name : #{@blog_details['name']}"
-      pdf.move_down 10
-      pdf.text "Blog Url : #{@blog_details['url']}"
-      pdf.move_down 10
-      pdf.text "Number of Posts : #{@blog_details['posts']['totalItems']}"
-      pdf.move_down 10
-      pdf.text "Number of Pages : #{@blog_details['pages']['totalItems']}"
-      pdf.move_down 10
-      pdf.text "Language : #{@blog_details['locale']['language']}"
-      pdf.move_down 10
+              #Retrieving a blog
+              "Blog Id : #{@blog_details['id']}", "Blog Name : #{@blog_details['name']}",
+              "Blog Url : #{@blog_details['url']}",
+              "Number of Posts : #{@blog_details['posts']['totalItems']}",
+              "Number of Pages : #{@blog_details['pages']['totalItems']}",
+              "Language : #{@blog_details['locale']['language']}"
+             ]
+      item.each {|i| pdf.text "#{i}"
+                 pdf.move_down 10}
 
       #Retrieving posts from a blog
-      pdf.text "Title and Comments(last 10 blogs) : #{@post_comm_hash}"
-      pdf.move_down 10
+      if !@post_comm_hash.nil?
+        pdf.text "Title and Comments(last 10 blogs)"
+        pdf.move_down 10
+        @post_comm_hash.each do |k,v| pdf.text "#{k} : #{v.join('')}"
+                                      pdf.move_down 10
+        end
+      end
 
       #Retrieving pages for a blog
-      pdf.text "Pages : #{@page_array}"
-      pdf.move_down 10
+      if !@page_array.nil?
+        pdf.text "Pages"
+        pdf.move_down 10
+        @page_array.each {|i| pdf.text "#{i}"
+        pdf.move_down 10}
+      end
 
       #graph generation using gruff bar for blog count
       bar_graph = Gruff::Bar.new('550x690')
-      bar_graph.title = 'Number of posts & pages graph'
-      bar_graph.maximum_value = 10
-      bar_graph.minimum_value = 0
-      bar_graph.y_axis_increment = 5
-      bar_graph.data('Number of posts',["#{@blog_details['posts']['totalItems']}".to_i])
-      bar_graph.data('Number of pages',["#{@blog_details['pages']['totalItems']}".to_i])
-      bar_graph.write("public/gruff_graph/num_posts_pages_#{@blog_details['id']}.png")
+      graph_item = ['title : Number of posts & pages graph',
+                    'maximum_value : 10', 'minimum_value : 0',
+                    'y_axis_increment : 5',
+                    "data('Number of posts',[\"#{@blog_details['posts']['totalItems']}\".to_i] ",
+                    "data('Number of pages',[\"#{@blog_details['pages']['totalItems']}\".to_i]) ",
+                    "write(\"public/gruff_graph/num_posts_pages_#{@blog_details['id']}.png\")] "]
+      graph_item.each {
+          |i|   "bar_graph.#{i}"
+      }
       @graph = "public/gruff_graph/num_posts_pages_#{@blog_details['id']}.png"
       pdf.image @graph, :width => 550, :height => 690
-
       send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
