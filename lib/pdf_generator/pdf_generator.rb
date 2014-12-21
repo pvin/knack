@@ -1,6 +1,5 @@
 module PdfGenerator
-  # class MyCrazyException < Exception
-  # end
+
   def git_pdf_responder
     pdf = Prawn::Document.new
     @logopath = "app/assets/images/logo_blue.jpg"
@@ -10,66 +9,48 @@ module PdfGenerator
     pdf.fill_color "0066FF"
     pdf.font_size 42
     pdf.text_box "Knack Reports", :align => :right
-
     pdf.move_down 20
     pdf.font_size 14
-    pdf.text "Below generated report for Github user #{@github_details['login']}"
 
-    pdf.move_down 20
+    item = ["Below generated report for Github user #{@github_details['login']}",
 
-    #Retrieving a github details
-    pdf.text "Login : #{@github_details['login']}"
-    pdf.move_down 10
-    pdf.text "Name : #{@github_details['name']}"
-    pdf.move_down 10
-    pdf.text "Email Id : #{@github_details['email']}"
-    pdf.move_down 10
-    pdf.text "Location : #{@github_details['location']}"
-    pdf.move_down 10
-    pdf.text "Login Id : #{@github_details['id']}"
-    pdf.move_down 10
-    pdf.text "Image Url : #{@github_details['avatar_url']}"
-    pdf.move_down 10
-    pdf.text "Company Name : #{@github_details['company']}"
-    pdf.move_down 10
-    pdf.text "User Site : #{@github_details['blog']}"
-    pdf.move_down 10
-    pdf.text "Github Account Url : #{@github_details['html_url']}"
-    pdf.move_down 10
-    pdf.text "Followers : #{@github_details['followers']}"
-    pdf.move_down 10
-    pdf.text "Following : #{@github_details['following']}"
-    pdf.move_down 10
-    pdf.text "Public Gists Count : #{@github_details['public_gists']}"
-    pdf.move_down 10
-    pdf.text "Public Repositories Count : #{@github_details['public_repos']}"
-    pdf.move_down 10
-    pdf.text "Hireable Status : #{@github_details['hireable']}"
-    pdf.move_down 10
-    pdf.text "Account Created On : #{@github_details['created_at']}"
-    pdf.move_down 10
-    pdf.text "Account Updated On : #{@github_details['updated_at']}"
-    pdf.move_down 10
+            #Retrieving a github details
+            "Login : #{@github_details['login']}", "Name : #{@github_details['name']}",
+            "Email Id : #{@github_details['email']}", "Location : #{@github_details['location']}",
+            "Login Id : #{@github_details['id']}", "Image Url : #{@github_details['avatar_url']}",
+            "Company Name : #{@github_details['company']}", "User Site : #{@github_details['blog']}",
+            "Github Account Url : #{@github_details['html_url']}", "Followers : #{@github_details['followers']}",
+            "Following : #{@github_details['following']}", "Public Gists Count : #{@github_details['public_gists']}",
+            "Public Repositories Count : #{@github_details['public_repos']}", "Hireable Status : #{@github_details['hireable']}",
+            "Account Created On : #{@github_details['created_at']}", "Account Updated On : #{@github_details['updated_at']}",
 
-    #organizations work
-    pdf.text "Organization List : #{@org_name_array}"
-    pdf.move_down 10
+            #organizations work
+            "Organization List : #{@org_name_array}"]
+
+    item.each { |i| pdf.text "#{i}"
+    pdf.move_down 10 }
 
     #detailed repo info
-    pdf.text "Detailed Repo Info : #{@repo_req_info_array}"
+    if !@repo_req_info_array.nil?
+      pdf.text "Detailed Repo Info"
+      pdf.move_down 10
+      @repo_req_info_array.each { |i| pdf.text "#{i}"
+      pdf.move_down 10 }
+    end
 
     #graph generation using gruff bar for github
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Number of Public Gists & Public Repositories'
-    bar_graph.maximum_value = 10
-    bar_graph.minimum_value = 0
-    bar_graph.y_axis_increment = 5
-    bar_graph.data('Number of Public Gists',["#{@github_details['public_gists']}".to_i])
-    bar_graph.data('Number of Public Repositories',["#{@github_details['public_repos']}".to_i])
-    bar_graph.write("public/gruff_graph/git_#{@github_details['login']}.png")
+    graph_item = ['title : Number of Public Gists & Public Repositories', 'maximum_value : 10', 'minimum_value : 0',
+                  'y_axis_increment : 5', "data('Number of Public Gists',[\"#{@github_details['public_gists']}\".to_i])",
+                  "data('Number of Public Repositories',[\"#{@github_details['public_repos']}\".to_i]) ",
+                  "write(\"public/gruff_graph/git_#{@github_details['login']}.png\")"]
+
+    graph_item.each {
+        |i| "bar_graph.#{i}"
+    }
+
     @graph = "public/gruff_graph/git_#{@github_details['login']}.png"
     pdf.image @graph, :width => 550, :height => 690
-
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
