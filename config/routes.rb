@@ -3,13 +3,13 @@ Knack::Application.routes.draw do
   devise_for :users
   #root :to => 'sof#consumer'
   root :to => 'app#app_home'
-  match 'loginhome/getoption'
+  match 'coder/getoption'
 
   match 'gblogger/consumer'
-  match 'loginhome/sof_consumer'
-  match 'loginhome/git_consumer'
-  match 'loginhome/blog_consumer'
-  match 'loginhome/bit_b_consumer'
+  match 'coder/sof_consumer'
+  match 'coder/git_consumer'
+  match 'coder/blog_consumer'
+  match 'coder/bit_b_consumer'
 
 
   #contact form routing
