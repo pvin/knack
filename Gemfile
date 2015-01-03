@@ -30,6 +30,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'imgkit'
+gem 'wkhtmltoimage-binary'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

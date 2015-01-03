@@ -1,25 +1,30 @@
 <div class="col-md-4">
   <div id="page2" class="linkedin">
-
     <h1 class="linkedin-title">Linked in</h1>
 
     <div class="content">
-      <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
-        nested model forms. </p></div>
-
-    <form class="form-inline" name="form" style="text-align: center" method="post" action="linked_in_consumer.pdf">
-      <div class="form-group">
-        <input type="text" name="name" class="textfiled-git" placeholder="Linkedin User Name">
-      </div>
-      <div class="buttons">
-        <button type="reset" class="button-one" style="text-align: center">Reset</button>
-        &nbsp; &nbsp; &nbsp;
-        <button type="submit" class="button-two">Submit</button>
-      </div>
-    </form>
-
+      <p>Welcome to LinkedIn, the world's largest professional network with 300 million members in over 200 countries
+        and territories around the globe.
+      </p>
+    </div>
+    <div class="form-inline" style="text-align: center">
+      <%= form_tag('linked_in_consumer', method: :post) do %>
+          <div class="form-group">
+            <div class="helper_image_lin"><img onMouseOver="ShowPicture('Style_lin',1)" onMouseOut="ShowPicture('Style_lin',0)"
+                                               alt="Rails" src="/assets/Help-icon.png" title="LinkedIn public profile url"/>
+            </div>
+            <div id="Style_lin"><img src="/assets/lin_id_ref.jpg"></div>
+            <div><%= text_field_tag 'lin_p_p_url', nil, placeholder: 'LinkedIn Public Profile URL', :required => true %>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
+            <div class="button-two"><%= button_tag 'Submit' %></div>
+          </div>
+      <% end %>
+    </div>
     <div class="power">
-      <p style="text-align: center">Powered by Linkedin</p>
+      <p style="text-align: center">Powered by LinkedIn</p>
     </div>
   </div>
 </div>

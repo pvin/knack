@@ -82,6 +82,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     i18n (0.6.1)
+    imgkit (1.6.0)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -185,6 +186,7 @@ GEM
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
+    wkhtmltoimage-binary (0.12.1)
 
 PLATFORMS
   ruby
@@ -198,6 +200,7 @@ DEPENDENCIES
   google-api-client
   gruff
   httparty
+  imgkit
   jquery-rails
   mysql2
   pg
@@ -207,3 +210,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
+  wkhtmltoimage-binary

@@ -21,7 +21,7 @@ class CoderController < ApplicationController
       git_content_processor
       git_pdf_responder
     rescue Exception =>e
-      puts 'Exception at github starts * ' + e.message + ' for sof id ' + "#{@github_user_name}" + ' * end up here'
+      puts 'Exception at github starts * ' + e.message + ' for git user ' + "#{@github_user_name}" + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
@@ -43,7 +43,7 @@ class CoderController < ApplicationController
       gblogger_content_processor
       blog_pdf_responder
     rescue Exception =>e
-      puts 'Exception at gblog starts * ' + e.message + ' for sof id ' + "#{@blogger_id}" + ' * end up here'
+      puts 'Exception at gblog starts * ' + e.message + ' for blog id ' + "#{@blogger_id}" + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
@@ -108,6 +108,12 @@ class CoderController < ApplicationController
   end
 
   def linked_in_consumer
-
+    begin
+      lin_pdf_responder
+    rescue Exception =>e
+      puts 'Exception at lin starts * ' + e.message + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
+      flash[:error] = "data not found."
+      raise CustomExceptions::HandleIfError
+    end
   end
 end

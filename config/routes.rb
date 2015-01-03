@@ -5,12 +5,12 @@ Knack::Application.routes.draw do
   root :to => 'app#app_home'
   match 'coder/getoption'
 
-  match 'gblogger/consumer'
+  #match 'gblogger/consumer'
   match 'coder/sof_consumer'
   match 'coder/git_consumer'
   match 'coder/blog_consumer'
   match 'coder/bit_b_consumer'
-
+  match 'coder/linked_in_consumer'
 
   #contact form routing
   match 'message' => 'message#new', :as => 'message', :via => :get
