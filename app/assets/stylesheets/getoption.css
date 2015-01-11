@@ -167,6 +167,15 @@ button{
     padding: 0.5em 2em;
     width: 90%;
 }
+
+#bit_b_username{
+    border: 0 none;
+    box-shadow: 2px 3px 3px #999999;
+    height: 50px;
+    padding: 0.5em 2em;
+    width: 90%;
+}
+
 .power{
     padding-right: .2em;
     padding-left: .2em;
@@ -220,6 +229,14 @@ button{
     left: 135px;
 }
 
+.helper_image_bit_b img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
+}
+
 #Style_sof {
     position: absolute;
     visibility: hidden;
@@ -242,6 +259,13 @@ button{
 }
 
 #Style_lin {
+    position: absolute;
+    visibility: hidden;
+    border: solid 1px #CCC;
+    padding: 5px;
+}
+
+#Style_bit_b {
     position: absolute;
     visibility: hidden;
     border: solid 1px #CCC;

@@ -1,28 +1,31 @@
 <div class="col-md-4">
   <div id="page2" class="bitbucket">
     <a name="rowtwo"></a>
-
     <h1 class="bitbucket-title">BitBucket</h1>
 
     <div class="content">
-      <p>Rails version 2.3 was released on March 15, 2009 with major new developments in templates, engines, Rack and
-        nested model forms. </p></div>
-
-    <form class="form-inline" name="form" style="text-align: center" method="post" action="bit_b_consumer">
-      <div class="form-group">
-        <input type="text" name="name" class="textfiled-git" placeholder="Bit Bucket User Name">
-      </div>
-      <div class="buttons">
-        <button type="reset" class="button-one" style="text-align: center">Reset</button>
-        &nbsp; &nbsp; &nbsp;
-        <button type="submit" class="button-two">Submit</button>
-      </div>
-    </form>
-
-    <div class="power">
-      <p style="text-align: center">Powered by Bit Bucket</p>
+      <p>Bitbucket is a hosting site for the distributed version control systems (DVCS) Git and Mercurial.
+        The service offering includes an issue tracker and wiki, as well as integration with a number of popular
+        services such as Basecamp, Flowdock, and Twitter.
+      </p>
     </div>
-
-
+    <div class="form-inline" style="text-align: center">
+      <%= form_tag('bit_b_consumer.pdf', method: :post) do %>
+          <div class="form-group">
+            <div class="helper_image_bit_b"><img onMouseOver="ShowPicture('Style_bit_b',1)" onMouseOut="ShowPicture('Style_bit_b',0)"
+                                                 alt="Rails" src="/assets/Help-icon.png" title="Bitbucket Username"/>
+            </div>
+            <div id="Style_bit_b"><img src="/assets/bit_b_name_ref.jpg"></div>
+            <div><%= text_field_tag 'bit_b_username', nil, placeholder: 'Bitbucket Username', :required => true%> </div>
+          </div>
+          <div class="buttons">
+            <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
+            <div id="submit" class="button-two"><%= button_tag 'Submit' %></div>
+          </div>
+      <% end %>
+    </div>
+    <div class="power">
+      <p style="text-align: center">Powered by Bitbucket</p>
+    </div>
   </div>
 </div>

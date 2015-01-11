@@ -226,13 +226,13 @@ module PdfGenerator
   def lin_pdf_responder
     @url = request['lin_p_p_url']
     if @url.include?('https://www')
-      @url = @url.gsub('https://www.','https://')
+      @url = @url.gsub('https://www.', 'https://')
     elsif @url.include?('https')
       @url
     elsif @url.include?('http')
-      @url = @url.gsub('http','https')
+      @url = @url.gsub('http', 'https')
     elsif @url.include?('www')
-      @url = @url.gsub('www.','https://')
+      @url = @url.gsub('www.', 'https://')
     else
       @url = 'https://'+@url
     end
@@ -249,7 +249,54 @@ module PdfGenerator
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 670
     send_data pdf.render, type: "application/pdf", disposition: "inline"
-
   end
+
+  def bit_b_pdf_responder
+    pdf = Prawn::Document.new
+    @logopath = "app/assets/images/logo_blue.jpg"
+    pdf.image @logopath, :width => 197, :height => 120
+    pdf.fill_color "0066FF"
+    pdf.font_size 42
+    pdf.text_box "Knack Reports", :align => :right
+    pdf.font_size 14
+    item = ["Below generated report for Bitbucket user #{@bit_b_user_details['username']}",
+
+            #Retrieving a user info
+            "Display Name : #{@bit_b_user_details['display_name']}",
+            "Project page URL : #{@bit_b_user_details['links']['html']['href']}",
+            "Avatar URL : #{@bit_b_user_details['links']['avatar']['href']}",
+
+            #retriving user followers
+            "Followers(up to 100) : #{@bit_b_u_f_a}",
+
+            #retriving user following
+            "Following(up to 100) : #{@bit_b_u_fg_a}"
+
+            ]
+    item.each { |i| pdf.text "#{i}"
+    pdf.move_down 10 }
+
+    #detailed repo info
+    if !@bit_b_user_repo_info_array.nil?
+      pdf.text "Detailed Repo Info"
+      pdf.move_down 10
+      @bit_b_user_repo_info_array.each { |i| pdf.text "#{i}"
+      pdf.move_down 10 }
+    end
+
+    #graph generation using gruff bar for bitbucket
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Number of projects & followers graph'
+    bar_graph.maximum_value = 50
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 10
+    bar_graph.data('Number of projects',["#{@bit_b_repo_count}".to_i])
+    bar_graph.data('Number of followers',["#{@bit_b_u_f_a}".to_i])
+    bar_graph.write(image_url = "public/gruff_graph/bit_b_graph_#{@bit_b_name}_#{Time.now}.png")
+    @graph = "#{image_url}"
+    pdf.image @graph, :width => 550, :height => 690
+    send_data pdf.render, type: "application/pdf", disposition: "inline"
+  end
+
 
 end

@@ -153,4 +153,45 @@ module ContentGenerator
     end
   end
 
+  def bit_b_content_processor
+    @bit_b_name = request["bit_b_username"]
+
+    #retriving user info
+    @bit_b_user_details = HTTParty.get("https://bitbucket.org/api/2.0/users/#{@bit_b_name}/")
+
+    #retriving user followers
+    @bit_b_user_follower_array = HTTParty.get("https://bitbucket.org/api/2.0/users/#{@bit_b_name}/followers?pagelen=100")
+    @bit_b_u_f_a = Array.new()
+    if !@bit_b_user_follower_array['values'].blank?
+      @bit_b_user_follower_array['values'].each {|f| @bit_b_u_f_a << f['username'] }
+    end
+
+    #retriving user followings
+    @bit_b_user_following_array = HTTParty.get("https://bitbucket.org/api/2.0/users/#{@bit_b_name}/following?pagelen=100")
+    @bit_b_u_fg_a = Array.new()
+    if !@bit_b_user_following_array['values'].blank?
+      @bit_b_user_following_array['values'].each {|f| @bit_b_u_fg_a << f['username'] }
+    end
+
+    #retriving repo info
+    @bit_b_user_repo_info = HTTParty.get("https://bitbucket.org/api/2.0/repositories/#{@bit_b_name}?pagelen=100")
+    @bit_b_repo_count = @bit_b_user_repo_info['values'].count
+    @bit_b_user_repo_info_array = Array.new()
+    if @bit_b_repo_count > 0
+      @bit_b_user_repo_info['values'].each{|r| @bit_b_user_repo_info_array << "Project Name = #{r['name']},
+                                                                               Description = #{r['description']},
+                                                                               Project URL = #{r['links']['html']['href']},
+                                                                               Version Controller = #{r['scm']},
+                                                                               Language  = #{r['language']},
+                                                                               Created On = #{r['created_on']},
+                                                                               Has Issues = #{r['has_issues']},
+                                                                               Project Owner = #{r['owner']['username']},
+                                                                               Updated On = #{r['updated_on']},
+                                                                               Watchers Count = #{(HTTParty.get("#{r['links']['watchers']['href']}"))['values'].count},
+                                                                               Commits Count = #{(HTTParty.get("#{r['links']['commits']['href']}"))['values'].count},
+                                                                               Forks Count = #{(HTTParty.get("#{r['links']['forks']['href']}"))['values'].count} "
+                                                                                }
+    end
+  end
+
 end
