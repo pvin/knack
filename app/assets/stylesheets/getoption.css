@@ -65,8 +65,8 @@ h1.bitbucket-title {
     background:url("/assets/box-bitbucket.png") no-repeat scroll center top / 180px auto rgba(0, 0, 0, 0);
     }
 
-h1.cloudforge-title {
-    background:url("/assets/cloudforge1.png") no-repeat scroll center top / 180px auto rgba(0, 0, 0, 0);
+h1.programmer-title {
+    background:url("/assets/programmer.png") no-repeat scroll center top / 250px auto rgba(0, 0, 0, 0);
 }
 
 h1.linkedin-title {
@@ -176,6 +176,14 @@ button{
     width: 90%;
 }
 
+#prog_user_id{
+    border: 0 none;
+    box-shadow: 2px 3px 3px #999999;
+    height: 50px;
+    padding: 0.5em 2em;
+    width: 90%;
+}
+
 .power{
     padding-right: .2em;
     padding-left: .2em;
@@ -237,6 +245,15 @@ button{
     left: 135px;
 }
 
+.helper_image_prog img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
+}
+
+
 #Style_sof {
     position: absolute;
     visibility: hidden;
@@ -266,6 +283,13 @@ button{
 }
 
 #Style_bit_b {
+    position: absolute;
+    visibility: hidden;
+    border: solid 1px #CCC;
+    padding: 5px;
+}
+
+#Style_prog {
     position: absolute;
     visibility: hidden;
     border: solid 1px #CCC;

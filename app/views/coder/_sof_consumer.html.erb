@@ -16,7 +16,7 @@
             </div>
             <div id="Style_sof"><img src="/assets/sof_id_ref.jpg"></div>
             <div><%= text_field_tag 'sof_user_id', nil, placeholder: 'Stack Overflow User Id', :required => true,
-                                    :pattern => '^\d{7}$' %> </div>
+                                    :pattern => '^\d+' %> </div>
           </div>
           <div class="buttons">
             <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
