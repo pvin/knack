@@ -21,7 +21,7 @@ class CoderController < ApplicationController
       git_content_processor
       git_pdf_responder
     rescue Exception =>e
-      puts 'Exception at github starts * ' + e.message + ' for git user ' + "#{@github_user_name}" + ' * end up here'
+      puts 'Exception at github starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for git user ' + @github_user_name + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
@@ -32,7 +32,7 @@ class CoderController < ApplicationController
       sof_content_processor
       sof_pdf_responder
     rescue Exception =>e
-      puts 'Exception at SOF starts * ' + e.message + ' for sof id ' + "#{@user_id}" + ' * end up here'
+      puts 'Exception at SOF starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for sof id ' + @user_id + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
@@ -43,7 +43,7 @@ class CoderController < ApplicationController
       gblogger_content_processor
       blog_pdf_responder
     rescue Exception =>e
-      puts 'Exception at gblog starts * ' + e.message + ' for blog id ' + "#{@blogger_id}" + ' * end up here'
+      puts 'Exception at gblog starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for blog id ' + @blogger_id + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
@@ -54,20 +54,28 @@ class CoderController < ApplicationController
       bit_b_content_processor
       bit_b_pdf_responder
     rescue Exception =>e
-      puts 'Exception at bitbucket starts * ' + e.message + ' for bitbucket user ' + "#{@bit_b_name}" + ' * end up here'
+      puts 'Exception at bitbucket starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for bitbucket user ' + @bit_b_name + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
-  def cloud_forge_consumer
 
+  def programmers_consumer
+    begin
+      prog_content_processor
+      prog_pdf_responder
+    rescue Exception =>e
+      puts 'Exception at programmers starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for prog user ' + "#{@user_id}" + ' * end up here'
+      flash[:error] = "data not found."
+      raise CustomExceptions::HandleIfError
+    end
   end
 
   def linked_in_consumer
     begin
       lin_pdf_responder
     rescue Exception =>e
-      puts 'Exception at lin starts * ' + e.message + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
+      puts 'Exception at lin starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
       flash[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end

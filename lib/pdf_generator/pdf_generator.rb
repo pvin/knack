@@ -84,22 +84,22 @@ module PdfGenerator
             "User Bronze Badge : #{@user_info["items"][0]["badge_counts"]["bronze"]}",
 
             #/users/{ids}/answers
-            "User Answer Count : #{@user_answer_count}",
-            "Link to the answers : #{@answer_collect}",
+            #"User Answer Count : #{@user_answer_count}",
+            "Link to the answers(last 30) : #{@answer_collect}",
 
             #/users/{ids}/questions
-            "User Question Count : #{@user_question_count}",
-            "Link to the questions : #{@question_collect}",
+            #"User Question Count : #{@user_question_count}",
+            "Link to the questions(last 30) : #{@question_collect}",
 
             #/users/{id}/network-activity
             # have details about edit, post etc.. except accepted answer
-            "User Network Activity Count(Stack Exchange network, ex:stack overflow,Ask Ubuntu etc..) : #{@user_network_activity_count}",
+            #"User Network Activity Count(Stack Exchange network, ex:stack overflow,Ask Ubuntu etc..) : #{@user_network_activity_count}",
 
             #/users/{ids}/reputation-history
-            "User Reputation History : #{@user_reputation_array}",
+            "User Reputation History(last 30) : #{@user_reputation_array}",
 
             #/users/{ids}/timeline
-            "User Actions in Stackoverflow(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
+            #"User Actions in Stackoverflow(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
 
     ]
     item.each { |i| pdf.text "#{i}"
@@ -128,9 +128,9 @@ module PdfGenerator
     #graph generation using gruff bar for reputation
     bar_graph = Gruff::Bar.new('550x690')
     bar_graph.title = 'Reputation graph'
-    bar_graph.maximum_value = 50
+    bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
-    bar_graph.y_axis_increment = 10
+    bar_graph.y_axis_increment = 10000
     bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
     bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
@@ -154,15 +154,15 @@ module PdfGenerator
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge & QA graph'
-    bar_graph.maximum_value = 10
+    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
-    bar_graph.y_axis_increment = 5
+    bar_graph.y_axis_increment = 20
     bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
     bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
-    bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
-    bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
+    #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
+    #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -298,5 +298,121 @@ module PdfGenerator
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 
+  def prog_pdf_responder
+    pdf = Prawn::Document.new
+    @logopath = "app/assets/images/logo_blue.jpg"
+    #@user_image = "#{@user_info["items"][0]["profile_image"]}"
+    pdf.image @logopath, :width => 197, :height => 120
+    #pdf.image open (@user_image)
+    pdf.fill_color "0066FF"
+    pdf.font_size 42
+    pdf.text_box "Knack Reports", :align => :right
+    pdf.font_size 14
+    item = ["Below generated report for programmers user #{@user_info["items"][0]["display_name"]}",
+
+            #/users/{ids}
+            "User Id : #{@user_info["items"][0]["user_id"]}",
+            "Display Name : #{@user_info["items"][0]["display_name"]}",
+            "Location : #{@user_info["items"][0]["location"]}",
+            "Last modified Date : #{@user_info["items"][0]["last_modified_date"]}",
+            "Last Access Date : #{@user_info["items"][0]["last_access_date"]}",
+            "Reputation Change In a Current Year : #{@user_info["items"][0]["reputation_change_year"]}",
+            "Reputation Change In a Current Quarter : #{@user_info["items"][0]["reputation_change_quarter"]}",
+            "Reputation Change In a Current Month : #{@user_info["items"][0]["reputation_change_month"]}",
+            "Reputation Change In a Current Week : #{@user_info["items"][0]["reputation_change_week"]}",
+            "Reputation Change In a Current Day : #{@user_info["items"][0]["reputation_change_day"]}",
+            "Over All Reputation : #{@user_info["items"][0]["reputation"]}",
+            "Personal Website Url : #{@user_info["items"][0]["website_url"]}",
+            "Programmers Link : #{@user_info["items"][0]["link"]}",
+            "Image Link : #{@user_info["items"][0]["profile_image"]}",
+            "User Gold Badge : #{@user_info["items"][0]["badge_counts"]["gold"]}",
+            "User Silver Badge : #{@user_info["items"][0]["badge_counts"]["silver"]}",
+            "User Bronze Badge : #{@user_info["items"][0]["badge_counts"]["bronze"]}",
+
+            #/users/{ids}/answers
+            #"User Answer Count : #{@user_answer_count}",
+            "Link to the answers(last 30) : #{@answer_collect}",
+
+            #/users/{ids}/questions
+            #"User Question Count : #{@user_question_count}",
+            "Link to the questions(last 30) : #{@question_collect}",
+
+            #/users/{id}/network-activity
+            # have details about edit, post etc.. except accepted answer
+            #"User Network Activity Count(Stack Exchange network, ex:stack overflow,Ask Ubuntu etc..) : #{@user_network_activity_count}",
+
+            #/users/{ids}/reputation-history
+            "User Reputation History(last 30) : #{@user_reputation_array}",
+
+            #/users/{ids}/timeline
+            #"User Actions in Programmers(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
+
+    ]
+    item.each { |i| pdf.text "#{i}"
+    pdf.move_down 10 }
+
+    #/users/{ids}/tags
+    if !@user_tags_info_hash.nil?
+      pdf.text "User Tags and Discussion Count"
+      pdf.move_down 10
+      @user_tags_info_hash.each do |k, v|
+        pdf.text "#{k} : #{v}"
+        pdf.move_down 10
+      end
+    end
+
+    #/users/{ids}/associated
+    if !@user_association_hash.nil?
+      pdf.text "User Association and Reputation"
+      pdf.move_down 10
+      @user_association_hash.each do |k, v|
+        pdf.text "#{k} : #{v}"
+        pdf.move_down 10
+      end
+    end
+
+    #graph generation using gruff bar for reputation
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Reputation graph'
+    bar_graph.maximum_value = 50000
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 10000
+    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    @graph = "#{image_url}"
+    pdf.image @graph, :width => 550, :height => 690
+
+    #graph generation using gruff bar for User Reputation History
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Reputation History graph'
+    bar_graph.maximum_value = 10
+    bar_graph.minimum_value = -10
+    bar_graph.y_axis_increment = 2
+    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    @graph = "#{image_url}"
+    pdf.image @graph, :width => 550, :height => 690
+
+    #graph generation using gruff bar for badge and qa
+    bar_graph = Gruff::Bar.new('550x690')
+    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.maximum_value = 500
+    bar_graph.minimum_value = 0
+    bar_graph.y_axis_increment = 20
+    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
+    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
+    #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
+    bar_graph.write(image_url = "public/gruff_graph/prog_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    @graph = "#{image_url}"
+    pdf.image @graph, :width => 550, :height => 690
+    send_data pdf.render, type: "application/pdf", disposition: "inline"
+  end
 
 end

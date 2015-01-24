@@ -11,6 +11,7 @@ Knack::Application.routes.draw do
   match 'coder/blog_consumer'
   match 'coder/bit_b_consumer'
   match 'coder/linked_in_consumer'
+  match 'coder/programmers_consumer'
 
   #contact form routing
   match 'message' => 'message#new', :as => 'message', :via => :get
