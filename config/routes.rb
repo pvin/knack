@@ -1,10 +1,15 @@
 Knack::Application.routes.draw do
 
+  get "direction/redirect"
+
+  get "direction/demo"
+
   devise_for :users
   #root :to => 'sof#consumer'
   root :to => 'app#app_home'
-  match 'coder/getoption'
 
+  match  'direction/redirect'
+  match 'coder/getoption'
   #match 'gblogger/consumer'
   match 'coder/sof_consumer'
   match 'coder/git_consumer'

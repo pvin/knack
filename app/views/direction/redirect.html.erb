@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <style>
+      h1 a {
+          color: #ffffff;
+      }
+
+      h1 {
+          color: #ffffff;
+      }
+
+      p a {
+          color: #ffffff;
+      }
+
+      .head{
+          text-align: right;
+      }
+
+      .signo{
+          text-align: right;
+      }
+
+      .white1:hover {
+          background: #ffffff;
+          color: #1175BF;
+          border-color: #1175BF;
+      }
+
+      .white2:hover {
+          background: #ffffff;
+          color: #1175BF;
+          border-color: #1175BF;
+      }
+
+      .white3:hover {
+          background: #ffffff;
+          color: #1175BF;
+          border-color: #1175BF;
+      }
+
+      .white4:hover {
+          background: #ffffff;
+          color: #1175BF;
+          border-color: #1175BF;
+      }
+
+      .white1{
+          padding: 18px 190px 18px 28px;
+      }
+      .white2{
+          padding: 18px 139px 18px 28px;
+      }
+      .white3{
+          padding: 18px 124px 18px 28px;
+      }
+      .white4{
+          padding: 18px 149px 18px 28px;
+      }
+  </style>
+</head>
+
+<body style="background-color:#1175BF ">
+
+<div class="container">
+
+
+  <div class="col-md-12">
+    <div class="head"><h1><%= link_to "KnacK", '/' %> </h1></div>
+    <div class="signo"><h4><%= link_to 'Signout', destroy_user_session_path, {:style => 'color: #FFFFFF', :class => "signout"},
+         :method => :GET %></h4>
+    </div>
+  </div>
+
+  <div>
+    <a href="#" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Tour</a>
+    <a href="/message" style="word-spacing:normal; color:white; font-family: 'Yeseva One', cursive; font-size:20px;">Contact</a>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Choose the domain</h1>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <a class="thumbnail" href="/coder/getoption">
+          <button type="button" class="btn btn-primary white1">Coder</button>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <a class="thumbnail" href="#">
+          <button type="button" class="btn btn-primary white2">System Admin</button>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 ">
+        <a class="thumbnail" href="#">
+          <button type="button" class="btn btn-primary white3">Communications</button>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-4 col-xs-6 ">
+        <a class="thumbnail" href="#">
+          <button type="button" class="btn btn-primary white4">Mathematics</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+</body>
+
+</html>

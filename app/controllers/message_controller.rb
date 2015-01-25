@@ -12,7 +12,7 @@ class MessageController < ApplicationController
     if @message.valid?
       NotificationsMailer.new_message(@message).deliver
       flash[:success] = "Email sent successfully"
-      redirect_to loginhome_getoption_url
+      redirect_to direction_redirect_url
     else
       flash[:error] = "Please fill the required fields."
       render :new
