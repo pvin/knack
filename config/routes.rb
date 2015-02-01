@@ -1,8 +1,8 @@
 Knack::Application.routes.draw do
 
-  get "direction/redirect"
+  #match "direction/redirect"
 
-  get "direction/demo"
+  match "direction/demo"
 
   devise_for :users
   #root :to => 'sof#consumer'

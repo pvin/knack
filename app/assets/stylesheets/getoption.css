@@ -289,6 +289,29 @@ button{
     padding: 5px;
 }
 
-mark{
-    background-color: greenyellow;
+footer {
+    margin-top: 910px;
+    padding-top: 25px;
+    border-top: 1px solid #eaeaea;
+    /*color: #999;*/
+}
+footer a {
+    color: #ffffff;
+}
+footer p {
+    color: #ffffff;
+}
+footer a:hover {
+    color: #000000;
+}
+footer small {
+    float: left;
+}
+footer ul {
+    float: right;
+    list-style: none;
+}
+footer ul li {
+    float: left;
+    margin-left: 10px;
 }

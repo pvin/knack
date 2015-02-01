@@ -1,1 +1,83 @@
-<h1>demo</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <style>
+      h2 {
+          color: #ffffff;
+      }
+      h1 a {
+          color: #ffffff;
+      }
+
+      h1 {
+          color: #ffffff;
+      }
+      h4 {
+          color: #ffffff;
+      }
+      p a {
+          color: #ffffff;
+      }
+
+      .head{
+          text-align: right;
+      }
+
+      .back{
+          text-align: right;
+      }
+      footer {
+          margin-top: 15px;
+          padding-top: 25px;
+          border-top: 1px solid #eaeaea;
+          /*color: #999;*/
+      }
+      footer a {
+          color: #ffffff;
+      }
+      footer p {
+          color: #ffffff;
+      }
+      footer a:hover {
+          color: #000000;
+      }
+      footer small {
+          float: left;
+      }
+      footer ul {
+          float: right;
+          list-style: none;
+      }
+      footer ul li {
+          float: left;
+          margin-left: 10px;
+      }
+  </style>
+</head>
+
+
+<body style="background-color:#1175BF ">
+<div class="container">
+  <div class="col-md-12">
+    <div class="head"><h1><%= link_to "KnacK", '/' %> </h1></div>
+    <div class="back"><h4><%= link_to 'back','/direction/redirect' %></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div >
+      <h1 class="page-header">About KnacK Application</h1>
+    </div>
+    <div>
+      <iframe width="1202" height="415" src="https://www.youtube.com/embed/q2H-hCfISLg" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div><%= render "demo_footer" %></div>
+</div>
+</div>
+</body>
+
+</html>
+
+
