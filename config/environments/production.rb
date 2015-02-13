@@ -62,7 +62,7 @@ Knack::Application.configure do
   config.active_support.deprecation = :notify
   
 
-  Rails.application.routes.default_url_options[:host] = 'sleepy-peak-6931.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'knack-codebeats.herokuapp.com'
   #Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
