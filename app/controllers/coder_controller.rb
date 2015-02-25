@@ -22,7 +22,7 @@ class CoderController < ApplicationController
       git_pdf_responder
     rescue Exception =>e
       puts 'Exception at github starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for git user ' + @github_user_name + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
@@ -33,7 +33,7 @@ class CoderController < ApplicationController
       sof_pdf_responder
     rescue Exception =>e
       puts 'Exception at SOF starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for sof id ' + @user_id + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
@@ -44,7 +44,7 @@ class CoderController < ApplicationController
       blog_pdf_responder
     rescue Exception =>e
       puts 'Exception at gblog starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for blog id ' + @blogger_id + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
@@ -55,7 +55,7 @@ class CoderController < ApplicationController
       bit_b_pdf_responder
     rescue Exception =>e
       puts 'Exception at bitbucket starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for bitbucket user ' + @bit_b_name + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
@@ -66,7 +66,7 @@ class CoderController < ApplicationController
       prog_pdf_responder
     rescue Exception =>e
       puts 'Exception at programmers starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for prog user ' + "#{@user_id}" + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
@@ -76,7 +76,7 @@ class CoderController < ApplicationController
       lin_pdf_responder
     rescue Exception =>e
       puts 'Exception at lin starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
-      flash[:error] = "data not found."
+      flash.now[:error] = "data not found."
       raise CustomExceptions::HandleIfError
     end
   end
