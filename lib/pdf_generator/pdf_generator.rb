@@ -244,7 +244,7 @@ module PdfGenerator
     pdf.text_box "Knack Reports", :align => :right
     #image_url = "public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png"
     kit = IMGKit.new(@url)
-    kit.to_file(image_url = "public/gruff_graph/#{Time.now}.jpg")
+    kit.to_file(image_url = "#{Time.now}.jpg")
     #image_url = "public/gruff_graph/file.jpg"
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 670
