@@ -73,6 +73,7 @@ class CoderController < ApplicationController
 
   def linked_in_consumer
     begin
+      linkedin_content_processor
       lin_pdf_responder
     rescue Exception =>e
       puts 'Exception at lin starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'

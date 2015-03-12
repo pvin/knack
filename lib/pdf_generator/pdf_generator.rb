@@ -224,30 +224,29 @@ module PdfGenerator
   end
 
   def lin_pdf_responder
-    @url = request['lin_p_p_url']
-    if @url.include?('https://www')
-      @url = @url.gsub('https://www.', 'https://')
-    elsif @url.include?('https')
-      @url
-    elsif @url.include?('http')
-      @url = @url.gsub('http', 'https')
-    elsif @url.include?('www')
-      @url = @url.gsub('www.', 'https://')
-    else
-      @url = 'https://'+@url
-    end
     pdf = Prawn::Document.new
     @logopath = "app/assets/images/logo_blue.jpg"
-    pdf.image @logopath, :width => 97, :height => 40
+    pdf.image @logopath, :width => 197, :height => 120
     pdf.fill_color "0066FF"
     pdf.font_size 22
     pdf.text_box "Knack Reports", :align => :right
-    #image_url = "public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png"
-    kit = IMGKit.new(@url)
-    kit.to_file(image_url = "public/gruff_graph/#{Time.now}.jpg")
-    #image_url = "public/gruff_graph/file.jpg"
-    @graph = "#{image_url}"
-    pdf.image @graph, :width => 550, :height => 670
+    pdf.font_size 14
+    pdf.text "Below generated report for Linkedin user #{@pro_info_hash['Name']}"
+    pdf.move_down 20
+    if !@pro_info_hash.nil?
+      @pro_info_hash.each do |k, v|
+        pdf.text "#{k} : #{v}"
+        pdf.move_down 10
+      end
+    end
+    if !@pro_info_hash_array.nil?
+      @pro_info_hash_array.each do |k, v|
+        pdf.text "#{k.to_s} : "
+        v.each { |k1, v1|  k1.each {|k2, v2|pdf.text "#{k2} : #{v2}"}}
+        pdf.move_down 10
+      end
+    end
+
     send_data pdf.render, type: "application/pdf", disposition: "inline"
   end
 

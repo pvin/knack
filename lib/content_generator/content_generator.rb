@@ -153,6 +153,33 @@ module ContentGenerator
     end
   end
 
+  def linkedin_content_processor
+    # getting public profile url from user
+    url = request['lin_p_p_url']
+    if url.include?('https://www')
+      url = url.gsub('https://www.', 'https://')
+    elsif url.include?('https')
+      url
+    elsif url.include?('http')
+      url = url.gsub('http', 'https')
+    elsif url.include?('www')
+      url = url.gsub('www.', 'https://')
+    else
+      url = 'https://'+url
+    end
+    #detting public profile info from linkedin
+    profile_info = Linkedin::Profile.get_profile("#{url}")
+    @pro_info_hash = {'First Name' => profile_info.first_name, 'Last Name' => profile_info.last_name, 'Name' => profile_info.name,
+                       'Title' => profile_info.title, 'Summary' => profile_info.summary, 'Location' => profile_info.location,
+                       'Country' => profile_info.country, 'Industry' => profile_info.industry, 'skills' => profile_info.skills,
+                       'Websites' => profile_info.websites}
+
+    @others = {'Organizations' => profile_info.organizations, 'Languages' => profile_info.languages, 'Certifications' => profile_info.certifications}
+
+    @pro_info_hash_array = { 'Education' => profile_info.education, 'Groups' => profile_info.groups, 'Past_Companies' => profile_info.past_companies,
+                             'Current_Companies' => profile_info.current_companies}
+  end
+
   def bit_b_content_processor
     @bit_b_name = request["bit_b_username"]
 
