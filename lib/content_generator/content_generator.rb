@@ -167,7 +167,7 @@ module ContentGenerator
     else
       url = 'https://'+url
     end
-    #detting public profile info from linkedin
+    #getting public profile info from linkedin
     profile_info = Linkedin::Profile.get_profile("#{url}")
     @pro_info_hash = {'First Name' => profile_info.first_name, 'Last Name' => profile_info.last_name, 'Name' => profile_info.name,
                        'Title' => profile_info.title, 'Summary' => profile_info.summary, 'Location' => profile_info.location,
