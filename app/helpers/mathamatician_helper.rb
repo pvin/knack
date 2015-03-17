@@ -1,0 +1,2 @@
+module MathamaticianHelper
+end

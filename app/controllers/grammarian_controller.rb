@@ -1,0 +1,2 @@
+class GrammarianController < ApplicationController
+end

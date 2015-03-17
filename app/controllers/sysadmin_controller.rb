@@ -1,0 +1,2 @@
+class SysadminController < ApplicationController
+end
