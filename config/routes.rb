@@ -10,6 +10,8 @@ Knack::Application.routes.draw do
 
   match  'direction/redirect'
   match 'coder/getoption'
+  match 'grammarian/getoption'
+  match 'grammarian/elu_consumer'
   #match 'gblogger/consumer'
   match 'coder/sof_consumer'
   match 'coder/git_consumer'
