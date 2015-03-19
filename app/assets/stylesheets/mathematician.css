@@ -46,26 +46,25 @@
 }
 
 
-h1.elu-title {
-    background:url("/assets/elu_logo.png") no-repeat scroll center top / 340px auto rgba(0, 0, 0, 0);
+h1.maths-title {
+    background:url("/assets/maths_logo.png") no-repeat scroll center top / 320px auto rgba(0, 0, 0, 0);
 }
-.helper_image_elu img{
-  width: 7%;
-  height: 5%;
-  position: relative;
-  top: 38px;
-  left: 135px;
+.helper_image_maths img{
+    width: 7%;
+    height: 5%;
+    position: relative;
+    top: 38px;
+    left: 135px;
 }
 
-
-#Style_elu {
+#Style_maths {
     position: absolute;
     visibility: hidden;
     border: solid 1px #CCC;
     padding: 5px;
 }
 
-#elu_user_id{
+#maths_user_id{
     border: 0 none;
     box-shadow: 2px 3px 3px #999999;
     height: 50px;

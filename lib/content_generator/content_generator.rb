@@ -348,13 +348,13 @@ module ContentGenerator
   end
 
   def maths_content_processor
-    @user_id = request["elu_user_id"]
+    @user_id = request["maths_user_id"]
     
     #/users/{ids}
-    @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=english")
+    @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=math")
 
     #/users/{ids}/answers
-    @user_answer = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/answers?order=desc&sort=activity&site=english")
+    @user_answer = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/answers?order=desc&sort=activity&site=math")
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
@@ -364,7 +364,7 @@ module ContentGenerator
     end
 
     #/users/{ids}/questions
-    @user_question = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/questions?order=desc&sort=activity&site=english")
+    @user_question = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/questions?order=desc&sort=activity&site=math")
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
@@ -378,7 +378,7 @@ module ContentGenerator
     @user_network_activity_count = @user_network_activity["items"].count
 
     #/users/{ids}/reputation-history
-    @user_reputation_history = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/reputation-history?site=english")
+    @user_reputation_history = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/reputation-history?site=math")
     @user_reputation_array = Array.new()
     if @user_reputation_history["items"] != nil
       @user_reputation_history["items"].each { |repu| @user_reputation_array << repu["reputation_change"] }
@@ -387,7 +387,7 @@ module ContentGenerator
     end
 
     #/users/{ids}/tags
-    @user_tags = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/tags?order=desc&sort=popular&site=english")
+    @user_tags = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/tags?order=desc&sort=popular&site=math")
     @user_tags_info_hash = Hash.new()
     if @user_tags["items"] != nil
       @user_tags["items"].each { |tag| @user_tags_info_hash["#{tag["name"]}"] = tag["count"] }
@@ -405,7 +405,7 @@ module ContentGenerator
     end
 
     #/users/{ids}/timeline
-    @user_timeline = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/timeline?site=english")
+    @user_timeline = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/timeline?site=math")
     @user_timeline_count = @user_timeline["items"].count
 
   end

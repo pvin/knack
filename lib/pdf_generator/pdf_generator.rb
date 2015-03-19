@@ -499,7 +499,7 @@ module PdfGenerator
     bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
     bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
     bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
-    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    bar_graph.write(image_url = "public/gruff_graph/elu_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
@@ -510,7 +510,7 @@ module PdfGenerator
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
     bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
-    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    bar_graph.write(image_url = "public/gruff_graph/elu_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
@@ -541,7 +541,7 @@ module PdfGenerator
     pdf.font_size 42
     pdf.text_box "Knack Reports", :align => :right
     pdf.font_size 14
-    item = ["Below generated report for English Language & Usage user #{@user_info["items"][0]["display_name"]}",
+    item = ["Below generated report for Mathematics user #{@user_info["items"][0]["display_name"]}",
 
             #/users/{ids}
             "User Id : #{@user_info["items"][0]["user_id"]}",
@@ -616,7 +616,7 @@ module PdfGenerator
     bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
     bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
     bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
-    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    bar_graph.write(image_url = "public/gruff_graph/maths_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
@@ -627,7 +627,7 @@ module PdfGenerator
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
     bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
-    bar_graph.write(image_url = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    bar_graph.write(image_url = "public/gruff_graph/maths_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
@@ -642,7 +642,7 @@ module PdfGenerator
     bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
-    bar_graph.write(image_url = "public/gruff_graph/elu_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
+    bar_graph.write(image_url = "public/gruff_graph/maths_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
     send_data pdf.render, type: "application/pdf", disposition: "inline"

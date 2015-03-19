@@ -1,0 +1,32 @@
+<div class="col-md-4">
+  <div id="page1" class="maths">
+    <h1 class="maths-title">Mathematics</h1>
+
+    <div class="content">
+      <p>Mathematics Stack Exchange is a question and answer site for people studying math at any level and
+        professionals in related fields. It's built and run by you as part of the Stack Exchange network of
+        Q&A sites. With your help, we're working together to build a library of detailed answers to every
+        question about math.
+      </p>
+    </div>
+    <div class="form-inline" style="text-align: center">
+      <%= form_tag('maths_consumer', method: :post) do %>
+          <div class="form-group">
+            <div class="helper_image_maths"><img onMouseOver="ShowPicture('Style_maths',1)" onMouseOut="ShowPicture('Style_maths',0)"
+                                               alt="Rails" src="/assets/Help-icon.png" title="Login into Mathematics to get user id"/>
+            </div>
+            <div id="Style_maths"><img src="/assets/maths_id_ref.png"></div>
+            <div><%= text_field_tag 'maths_user_id', nil, placeholder: 'Mathematics User Id', :required => true,
+                                    :pattern => '^\d+' %> </div>
+          </div>
+          <div class="buttons">
+            <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>
+            <div class="button-two"><%= button_tag 'Submit' %></div>
+          </div>
+      <% end %>
+    </div>
+    <div class="power">
+      <p style="text-align: center">Powered by Mathematics, Stack Exchange</p>
+    </div>
+  </div>
+</div>

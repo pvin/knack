@@ -1,7 +1,7 @@
 require './lib/pdf_generator/pdf_generator.rb'
 require './lib/content_generator/content_generator'
 
-class MathamaticianController < ApplicationController
+class MathematicianController < ApplicationController
   include HTTParty
   include PdfGenerator
   include ContentGenerator

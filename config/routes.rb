@@ -12,6 +12,8 @@ Knack::Application.routes.draw do
   match 'coder/getoption'
   match 'grammarian/getoption'
   match 'grammarian/elu_consumer'
+  match 'mathematician/getoption'
+  match 'mathematician/maths_consumer'
   #match 'gblogger/consumer'
   match 'coder/sof_consumer'
   match 'coder/git_consumer'
