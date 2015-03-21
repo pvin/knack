@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <style>
+      body {
+          background-color: #1175bf;
+      }
+  </style>
+</head>
+<body>
+<%= render "admins_header" %>
+
+<div class="container">
+  <a name="rowone"></a>
+  <div class="page-padding"></div>
+  <%= render "ask_ubuntu_consumer" %>
+  <%= render "server_fault_consumer" %>
+  <%= render "super_user_consumer" %>
+  <%= render "admins_footer" %>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script>$(document).ready(function () {
+    function filterPath(string) {
+        return string
+                .replace(/^\//, '')
+                .replace(/(index|default).[a-zA-Z]{3,4}$/, '')
+                .replace(/\/$/, '');
+    }
+
+    $('a[href*=#]').each(function () {
+        if (filterPath(location.pathname) == filterPath(this.pathname)
+                && location.hostname == this.hostname
+                && this.hash.replace(/#/, '')) {
+            var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) + ']');
+            var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+            if ($target) {
+                var targetOffset = $target.offset().top;
+                $(this).click(function () {
+                    $('html, body').animate({scrollTop: targetOffset}, 1300);
+                    return false;
+                });
+            }
+        }
+    });
+});
+
+</script>
+
+<!--mouse on image show image script-->
+<script>
+function ShowPicture(id,Source) {
+if (Source=="1"){
+if (document.layers) document.layers[''+id+''].visibility = "show"
+else if (document.all) document.all[''+id+''].style.visibility = "visible"
+else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "visible"
+}
+else
+if (Source=="0"){
+if (document.layers) document.layers[''+id+''].visibility = "hide"
+else if (document.all) document.all[''+id+''].style.visibility = "hidden"
+else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "hidden"
+}
+}
+
+</script>
+
+</body>
+</html>
