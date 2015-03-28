@@ -12,8 +12,9 @@
     <div class="form-inline" style="text-align: center">
       <%= form_tag('maths_consumer', method: :post) do %>
           <div class="form-group">
-            <div class="helper_image_maths"><img onMouseOver="ShowPicture('Style_maths',1)" onMouseOut="ShowPicture('Style_maths',0)"
-                                               alt="Rails" src="/assets/Help-icon.png" title="Login into Mathematics to get user id"/>
+            <div class="helper_image_maths">
+              <img onMouseOver="ShowPicture('Style_maths',1)" onMouseOut="ShowPicture('Style_maths',0)"
+                   alt="Rails" src="/assets/Help-icon.png" title="Login into Mathematics to get user id"/>
             </div>
             <div id="Style_maths"><img src="/assets/maths_id_ref.png"></div>
             <div><%= text_field_tag 'maths_user_id', nil, placeholder: 'Mathematics User Id', :required => true,

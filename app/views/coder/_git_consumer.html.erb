@@ -10,8 +10,9 @@
     <div class="form-inline" style="text-align: center">
       <%= form_tag('git_consumer.pdf', method: :post) do %>
           <div class="form-group">
-            <div class="helper_image_git"><img onMouseOver="ShowPicture('Style_git',1)" onMouseOut="ShowPicture('Style_git',0)"
-                                               alt="Rails" src="/assets/Help-icon.png" title="github account name"/>
+            <div class="helper_image_git">
+              <img onMouseOver="ShowPicture('Style_git',1)" onMouseOut="ShowPicture('Style_git',0)"
+                   alt="Rails" src="/assets/Help-icon.png" title="github account name"/>
             </div>
             <div id="Style_git"><img src="/assets/github_id_ref.jpg"></div>
             <div><%= text_field_tag 'git_name', nil, placeholder: 'GitHub User Name', :required => true %>

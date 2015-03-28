@@ -1,6 +1,7 @@
 <div class="col-md-4">
   <div id="page2" class="bitbucket">
     <a name="rowtwo"></a>
+
     <h1 class="bitbucket-title">BitBucket</h1>
 
     <div class="content">
@@ -12,11 +13,12 @@
     <div class="form-inline" style="text-align: center">
       <%= form_tag('bit_b_consumer.pdf', method: :post) do %>
           <div class="form-group">
-            <div class="helper_image_bit_b"><img onMouseOver="ShowPicture('Style_bit_b',1)" onMouseOut="ShowPicture('Style_bit_b',0)"
-                                                 alt="Rails" src="/assets/Help-icon.png" title="Bitbucket Username"/>
+            <div class="helper_image_bit_b">
+              <img onMouseOver="ShowPicture('Style_bit_b',1)" onMouseOut="ShowPicture('Style_bit_b',0)"
+                   alt="Rails" src="/assets/Help-icon.png" title="Bitbucket Username"/>
             </div>
             <div id="Style_bit_b"><img src="/assets/bit_b_name_ref.jpg"></div>
-            <div><%= text_field_tag 'bit_b_username', nil, placeholder: 'Bitbucket Username', :required => true%> </div>
+            <div><%= text_field_tag 'bit_b_username', nil, placeholder: 'Bitbucket Username', :required => true %> </div>
           </div>
           <div class="buttons">
             <div class="button-one" style="text-align: center"><%= button_tag 'Reset', :type => 'reset' %></div>

@@ -8,7 +8,7 @@
   <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   <style>
-      body{
+      body {
           background-color: #1175BF;
       }
 
@@ -16,10 +16,10 @@
           margin-top: 15em;
       }
 
-
       .title {
           margin-top: 10px;
-          }
+      }
+
       .title h1 {
           font-family: 'Nunito';
           font-size: 92px;
@@ -27,7 +27,6 @@
       }
 
       .content {
-
 
       }
 
@@ -39,7 +38,6 @@
           line-height: 40px;
       }
 
-
       p, h1 {
           color: #ffffff;
           text-align: center;
@@ -50,41 +48,56 @@
       }
 
       a.next {
-           font-family: 'abstrasctikregular';
-           font-size: 42px;
+          font-family: 'abstrasctikregular';
+          font-size: 42px;
 
-
-           text-decoration: none;
-          color:#333333;
-       }
-      a.next:hover {text-decoration: none ; color:#909090 ;}
-
-
-      h1 :hover {text-decoration: none ;color: #D0D0D0 ;}
-
-      h1 a{
-          color:#ffffff;
+          text-decoration: none;
+          color: #333333;
       }
-          .slogan { font-family: 'Nunito'; font-size: 25px; color:#fff;
-          position: relative; top:-20px;text-align: center; left:40px;}
 
-          .custom-btn {
-              background-color: #FFFFFF;
-              color: #1175BF;
-              font-size: 24px;
-              padding: 0.5em 3em;
-              min-width: 315px;
-              border-radius: 0;
-              margin-bottom:0.5em;
-              text-transform: uppercase;
-          }
-      .custom-btn:hover {
-          background-color:  #1175BF;
+      a.next:hover {
+          text-decoration: none;
+          color: #909090;
+      }
+
+      h1 :hover {
+          text-decoration: none;
+          color: #D0D0D0;
+      }
+
+      h1 a {
+          color: #ffffff;
+      }
+
+      .slogan {
+          font-family: 'Nunito';
+          font-size: 25px;
           color: #fff;
-          border:3px solid #fff;
+          position: relative;
+          top: -20px;
+          text-align: center;
+          left: 40px;
       }
-      .logo{
-          float:left;
+
+      .custom-btn {
+          background-color: #FFFFFF;
+          color: #1175BF;
+          font-size: 24px;
+          padding: 0.5em 3em;
+          min-width: 315px;
+          border-radius: 0;
+          margin-bottom: 0.5em;
+          text-transform: uppercase;
+      }
+
+      .custom-btn:hover {
+          background-color: #1175BF;
+          color: #fff;
+          border: 3px solid #fff;
+      }
+
+      .logo {
+          float: left;
           padding-left: 22em;
       }
   </style>
@@ -93,13 +106,11 @@
 <body>
 <div class="container">
 
-  <div class = "title">
-    <div class="logo"><%= image_tag('logo_white.gif',:width => 130, :height => 110, :alt => "Icon") %></div>
+  <div class="title">
+    <div class="logo"><%= image_tag('logo_white.gif', :width => 130, :height => 110, :alt => "Icon") %></div>
     <h1><a href="/users/sign_in">KnacK</a></h1>
     <h5 class="slogan">The Right Hire</h5>
   </div>
-
-
 
 
   <div class="content">
@@ -108,9 +119,9 @@
   </div>
 
 
-
-  <center><a class="btn btn-primary custom-btn" href="/users/sign_in" class = "next">Get Started</a>  </center>
-    <center><a class="btn btn-primary custom-btn" class = "next" data-toggle="modal" data-target="#myModal">Sample</a>  </center>
+  <center><a class="btn btn-primary custom-btn" href="/users/sign_in" class="next">Get Started</a></center>
+  <center><a class="btn btn-primary custom-btn" class="next" data-toggle="modal" data-target="#myModal">Sample</a>
+  </center>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -128,7 +139,7 @@
     </div>
   </div>
 
-  </div>
+</div>
 
 </body>
 </html>

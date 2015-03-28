@@ -44,8 +44,8 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 5
-    bar_graph.data('Number of Public Gists',["#{@github_details['public_gists']}".to_i])
-    bar_graph.data('Number of Public Repositories',["#{@github_details['public_repos']}".to_i])
+    bar_graph.data('Number of Public Gists', ["#{@github_details['public_gists']}".to_i])
+    bar_graph.data('Number of Public Repositories', ["#{@github_details['public_repos']}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/git_#{@github_details['login']}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -98,8 +98,8 @@ module PdfGenerator
             #/users/{ids}/reputation-history
             "User Reputation History(last 30) : #{@user_reputation_array}",
 
-            #/users/{ids}/timeline
-            #"User Actions in Stackoverflow(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
+    #/users/{ids}/timeline
+    #"User Actions in Stackoverflow(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
 
     ]
     item.each { |i| pdf.text "#{i}"
@@ -131,12 +131,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -147,20 +147,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sof_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -215,8 +215,8 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 5
-    bar_graph.data('Number of posts',["#{@blog_details['posts']['totalItems']}".to_i])
-    bar_graph.data('Number of pages',["#{@blog_details['pages']['totalItems']}".to_i])
+    bar_graph.data('Number of posts', ["#{@blog_details['posts']['totalItems']}".to_i])
+    bar_graph.data('Number of pages', ["#{@blog_details['pages']['totalItems']}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/blog_num_posts_pages_#{@blog_details['id']}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -242,7 +242,7 @@ module PdfGenerator
     if !@pro_info_hash_array.nil?
       @pro_info_hash_array.each do |k, v|
         pdf.text "#{k.to_s} : "
-        v.each { |k1, v1|  k1.each {|k2, v2|pdf.text "#{k2} : #{v2}"}}
+        v.each { |k1, v1| k1.each { |k2, v2| pdf.text "#{k2} : #{v2}" } }
         pdf.move_down 10
       end
     end
@@ -271,7 +271,7 @@ module PdfGenerator
             #retriving user following
             "Following(up to 100) : #{@bit_b_u_fg_a}"
 
-            ]
+    ]
     item.each { |i| pdf.text "#{i}"
     pdf.move_down 10 }
 
@@ -289,8 +289,8 @@ module PdfGenerator
     bar_graph.maximum_value = 50
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10
-    bar_graph.data('Number of projects',["#{@bit_b_repo_count}".to_i])
-    bar_graph.data('Number of followers',["#{@bit_b_u_f_a}".to_i])
+    bar_graph.data('Number of projects', ["#{@bit_b_repo_count}".to_i])
+    bar_graph.data('Number of followers', ["#{@bit_b_u_f_a}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/bit_b_graph_#{@bit_b_name}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -343,8 +343,8 @@ module PdfGenerator
             #/users/{ids}/reputation-history
             "User Reputation History(last 30) : #{@user_reputation_array}",
 
-            #/users/{ids}/timeline
-            #"User Actions in Programmers(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
+    #/users/{ids}/timeline
+    #"User Actions in Programmers(answered, commented, revision, accepted  etc..) : #{@user_timeline_count}"
 
     ]
     item.each { |i| pdf.text "#{i}"
@@ -376,12 +376,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sof_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -392,20 +392,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/sof_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/prog_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -493,12 +493,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/elu_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -509,20 +509,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/elu_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/elu_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -610,12 +610,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/maths_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -626,20 +626,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/maths_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/maths_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -727,12 +727,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sfault_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -743,20 +743,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/sfault_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/sfault_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -844,12 +844,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/suser_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -860,20 +860,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/suser_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/suser_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
@@ -961,12 +961,12 @@ module PdfGenerator
     bar_graph.maximum_value = 50000
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 10000
-    bar_graph.data('Reputation Change In a Current Year',["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Year', ["#{@user_info["items"][0]["reputation_change_year"]}".to_i])
     bar_graph.data('Reputation Change In a Current Quarter', ["#{@user_info["items"][0]["reputation_change_quarter"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Month',["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Week',["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
-    bar_graph.data('Reputation Change In a Current Day',["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
-    bar_graph.data('Over All Reputation',["#{@user_info["items"][0]["reputation"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Month', ["#{@user_info["items"][0]["reputation_change_month"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Week', ["#{@user_info["items"][0]["reputation_change_week"]}".to_i])
+    bar_graph.data('Reputation Change In a Current Day', ["#{@user_info["items"][0]["reputation_change_day"]}".to_i])
+    bar_graph.data('Over All Reputation', ["#{@user_info["items"][0]["reputation"]}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/aubuntu_reputation_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
@@ -977,20 +977,20 @@ module PdfGenerator
     bar_graph.maximum_value = 10
     bar_graph.minimum_value = -10
     bar_graph.y_axis_increment = 2
-    bar_graph.data('Reputation History',"#{@user_reputation_array}".split(",").map(&:to_i))
+    bar_graph.data('Reputation History', "#{@user_reputation_array}".split(",").map(&:to_i))
     bar_graph.write(image_url = "public/gruff_graph/aubuntu_reputation_history_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")
     @graph = "#{image_url}"
     pdf.image @graph, :width => 550, :height => 690
 
     #graph generation using gruff bar for badge and qa
     bar_graph = Gruff::Bar.new('550x690')
-    bar_graph.title = 'Badge graph'#& QA graph'
+    bar_graph.title = 'Badge graph' #& QA graph'
     bar_graph.maximum_value = 500
     bar_graph.minimum_value = 0
     bar_graph.y_axis_increment = 20
-    bar_graph.data('User Gold Badge',["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
+    bar_graph.data('User Gold Badge', ["#{@user_info["items"][0]["badge_counts"]["gold"]}".to_i])
     bar_graph.data('User Silver Badge', ["#{@user_info["items"][0]["badge_counts"]["silver"]}".to_i])
-    bar_graph.data('User Bronze Badge',["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
+    bar_graph.data('User Bronze Badge', ["#{@user_info["items"][0]["badge_counts"]["bronze"]}".to_i])
     #bar_graph.data('User Answer Count',["#{@user_answer_count}".to_i])
     #bar_graph.data('User Question Count',["#{@user_question_count}".to_i])
     bar_graph.write(image_url = "public/gruff_graph/aubuntu_badge_qa_#{@user_info["items"][0]["user_id"]}_#{Time.now}.png")

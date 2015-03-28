@@ -11,8 +11,9 @@
     <div class="form-inline" style="text-align: center">
       <%= form_tag('sof_consumer.pdf', method: :post) do %>
           <div class="form-group">
-            <div class="helper_image_sof"><img onMouseOver="ShowPicture('Style_sof',1)" onMouseOut="ShowPicture('Style_sof',0)"
-                                               alt="Rails" src="/assets/Help-icon.png" title="Login into sof to get user id"/>
+            <div class="helper_image_sof">
+              <img onMouseOver="ShowPicture('Style_sof',1)" onMouseOut="ShowPicture('Style_sof',0)"
+                   alt="Rails" src="/assets/Help-icon.png" title="Login into sof to get user id"/>
             </div>
             <div id="Style_sof"><img src="/assets/sof_id_ref.jpg"></div>
             <div><%= text_field_tag 'sof_user_id', nil, placeholder: 'Stack Overflow User Id', :required => true,

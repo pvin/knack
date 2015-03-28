@@ -8,7 +8,7 @@ Knack::Application.routes.draw do
   #root :to => 'sof#consumer'
   root :to => 'app#app_home'
 
-  match  'direction/redirect'
+  match 'direction/redirect'
   match 'coder/getoption'
   match 'grammarian/getoption'
   match 'grammarian/elu_consumer'

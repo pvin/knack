@@ -16,6 +16,7 @@
 
 <div class="container">
   <a name="rowone"></a>
+
   <div class="page-padding"></div>
   <%= render "ask_ubuntu_consumer" %>
   <%= render "server_fault_consumer" %>
@@ -54,19 +55,18 @@
 
 <!--mouse on image show image script-->
 <script>
-function ShowPicture(id,Source) {
-if (Source=="1"){
-if (document.layers) document.layers[''+id+''].visibility = "show"
-else if (document.all) document.all[''+id+''].style.visibility = "visible"
-else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "visible"
-}
-else
-if (Source=="0"){
-if (document.layers) document.layers[''+id+''].visibility = "hide"
-else if (document.all) document.all[''+id+''].style.visibility = "hidden"
-else if (document.getElementById) document.getElementById(''+id+'').style.visibility = "hidden"
-}
-}
+    function ShowPicture(id, Source) {
+        if (Source == "1") {
+            if (document.layers) document.layers['' + id + ''].visibility = "show"
+            else if (document.all) document.all['' + id + ''].style.visibility = "visible"
+            else if (document.getElementById) document.getElementById('' + id + '').style.visibility = "visible"
+        }
+        else if (Source == "0") {
+            if (document.layers) document.layers['' + id + ''].visibility = "hide"
+            else if (document.all) document.all['' + id + ''].style.visibility = "hidden"
+            else if (document.getElementById) document.getElementById('' + id + '').style.visibility = "hidden"
+        }
+    }
 
 </script>
 

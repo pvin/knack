@@ -4,15 +4,15 @@ module ContentGenerator
     @github_user_name = request["git_name"]
 
     #Retrieving a github details
-    @github_details = HTTParty.get("https://api.github.com/users/#{@github_user_name}?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf",:headers =>{"User-Agent" => "#{@github_user_name}"} )
+    @github_details = HTTParty.get("https://api.github.com/users/#{@github_user_name}?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf", :headers => {"User-Agent" => "#{@github_user_name}"})
 
     #organizations work
     @org_url = @github_details['organizations_url']
-    @org_array =  Array.new()
+    @org_array = Array.new()
     @org_name_array = Array.new()
-    @org_array = HTTParty.get("#{@org_url}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers =>{"User-Agent" => "#{@github_user_name}"})
+    @org_array = HTTParty.get("#{@org_url}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf', :headers => {"User-Agent" => "#{@github_user_name}"})
     if @org_array != nil
-      @org_array.each { |name| @org_name_array << name['login']}
+      @org_array.each { |name| @org_name_array << name['login'] }
     else
       @org_array = nil
     end
@@ -21,7 +21,7 @@ module ContentGenerator
     @repo_info_link = @github_details['repos_url']
     @repo_info_array = Array.new()
     @repo_info_array = HTTParty.get("#{@repo_info_link}"+'?client_id=4c21444eb7ecee26f806&client_secret=0bddb2dc36faba30a2ffc93241358ebcdc7682cf',
-                                    :headers =>{"User-Agent" => "#{@github_user_name}"})
+                                    :headers => {"User-Agent" => "#{@github_user_name}"})
     @repo_req_info_array = Array.new()
     if @repo_info_array != nil
       @repo_info_array.each { |repo_info| @repo_req_info_array << "repo name : #{repo_info['name']},
@@ -65,65 +65,65 @@ module ContentGenerator
   end
 
   def sof_content_processor
-      @user_id = request["sof_user_id"]
+    @user_id = request["sof_user_id"]
 
-      #/users/{ids}
-      @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=stackoverflow")
+    #/users/{ids}
+    @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=stackoverflow")
 
-      #/users/{ids}/answers
-      @user_answer = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/answers?order=desc&sort=activity&site=stackoverflow")
-      @user_answer_count = @user_answer["items"].count
-      @answer_collect = Array.new()
-      if @user_answer["items"] != nil
-        @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
-      else
-        @user_answer["items"] = nil
-      end
+    #/users/{ids}/answers
+    @user_answer = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/answers?order=desc&sort=activity&site=stackoverflow")
+    @user_answer_count = @user_answer["items"].count
+    @answer_collect = Array.new()
+    if @user_answer["items"] != nil
+      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+    else
+      @user_answer["items"] = nil
+    end
 
-      #/users/{ids}/questions
-      @user_question = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/questions?order=desc&sort=activity&site=stackoverflow")
-      @user_question_count = @user_question["items"].count
-      @question_collect = Array.new()
-      if @user_question["items"] != nil
-        @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
-      else
-        @user_question["items"] = nil
-      end
+    #/users/{ids}/questions
+    @user_question = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/questions?order=desc&sort=activity&site=stackoverflow")
+    @user_question_count = @user_question["items"].count
+    @question_collect = Array.new()
+    if @user_question["items"] != nil
+      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+    else
+      @user_question["items"] = nil
+    end
 
-      #/users/{id}/network-activity
-      @user_network_activity = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/network-activity")
-      @user_network_activity_count = @user_network_activity["items"].count
+    #/users/{id}/network-activity
+    @user_network_activity = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/network-activity")
+    @user_network_activity_count = @user_network_activity["items"].count
 
-      #/users/{ids}/reputation-history
-      @user_reputation_history = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/reputation-history?site=stackoverflow")
-      @user_reputation_array = Array.new()
-      if @user_reputation_history["items"] != nil
-        @user_reputation_history["items"].each { |repu| @user_reputation_array << repu["reputation_change"] }
-      else
-        @user_reputation_history["items"] = nil
-      end
+    #/users/{ids}/reputation-history
+    @user_reputation_history = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/reputation-history?site=stackoverflow")
+    @user_reputation_array = Array.new()
+    if @user_reputation_history["items"] != nil
+      @user_reputation_history["items"].each { |repu| @user_reputation_array << repu["reputation_change"] }
+    else
+      @user_reputation_history["items"] = nil
+    end
 
-      #/users/{ids}/tags
-      @user_tags = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/tags?order=desc&sort=popular&site=stackoverflow")
-      @user_tags_info_hash = Hash.new()
-      if @user_tags["items"] != nil
-        @user_tags["items"].each { |tag| @user_tags_info_hash["#{tag["name"]}"] = tag["count"] }
-      else
-        @user_tags["items"] = nil
-      end
+    #/users/{ids}/tags
+    @user_tags = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/tags?order=desc&sort=popular&site=stackoverflow")
+    @user_tags_info_hash = Hash.new()
+    if @user_tags["items"] != nil
+      @user_tags["items"].each { |tag| @user_tags_info_hash["#{tag["name"]}"] = tag["count"] }
+    else
+      @user_tags["items"] = nil
+    end
 
-      #/users/{ids}/associated
-      @user_association = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/associated")
-      @user_association_hash = Hash.new()
-      if @user_association["items"] != nil
-        @user_association["items"].each { |asso| @user_association_hash["#{asso["site_name"]}"] = asso["reputation"] }
-      else
-        @user_association["items"] = nil
-      end
+    #/users/{ids}/associated
+    @user_association = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_info["items"][0]["account_id"]}/associated")
+    @user_association_hash = Hash.new()
+    if @user_association["items"] != nil
+      @user_association["items"].each { |asso| @user_association_hash["#{asso["site_name"]}"] = asso["reputation"] }
+    else
+      @user_association["items"] = nil
+    end
 
-      #/users/{ids}/timeline
-      @user_timeline = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/timeline?site=stackoverflow")
-      @user_timeline_count = @user_timeline["items"].count
+    #/users/{ids}/timeline
+    @user_timeline = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}/timeline?site=stackoverflow")
+    @user_timeline_count = @user_timeline["items"].count
 
   end
 
@@ -170,14 +170,14 @@ module ContentGenerator
     #getting public profile info from linkedin
     profile_info = Linkedin::Profile.get_profile("#{url}")
     @pro_info_hash = {'First Name' => profile_info.first_name, 'Last Name' => profile_info.last_name, 'Name' => profile_info.name,
-                       'Title' => profile_info.title, 'Summary' => profile_info.summary, 'Location' => profile_info.location,
-                       'Country' => profile_info.country, 'Industry' => profile_info.industry, 'skills' => profile_info.skills,
-                       'Websites' => profile_info.websites}
+                      'Title' => profile_info.title, 'Summary' => profile_info.summary, 'Location' => profile_info.location,
+                      'Country' => profile_info.country, 'Industry' => profile_info.industry, 'skills' => profile_info.skills,
+                      'Websites' => profile_info.websites}
 
     @others = {'Organizations' => profile_info.organizations, 'Languages' => profile_info.languages, 'Certifications' => profile_info.certifications}
 
-    @pro_info_hash_array = { 'Education' => profile_info.education, 'Groups' => profile_info.groups, 'Past_Companies' => profile_info.past_companies,
-                             'Current_Companies' => profile_info.current_companies}
+    @pro_info_hash_array = {'Education' => profile_info.education, 'Groups' => profile_info.groups, 'Past_Companies' => profile_info.past_companies,
+                            'Current_Companies' => profile_info.current_companies}
   end
 
   def bit_b_content_processor
@@ -190,14 +190,14 @@ module ContentGenerator
     @bit_b_user_follower_array = HTTParty.get("https://bitbucket.org/api/2.0/users/#{@bit_b_name}/followers?pagelen=100")
     @bit_b_u_f_a = Array.new()
     if !@bit_b_user_follower_array['values'].blank?
-      @bit_b_user_follower_array['values'].each {|f| @bit_b_u_f_a << f['username'] }
+      @bit_b_user_follower_array['values'].each { |f| @bit_b_u_f_a << f['username'] }
     end
 
     #retriving user followings
     @bit_b_user_following_array = HTTParty.get("https://bitbucket.org/api/2.0/users/#{@bit_b_name}/following?pagelen=100")
     @bit_b_u_fg_a = Array.new()
     if !@bit_b_user_following_array['values'].blank?
-      @bit_b_user_following_array['values'].each {|f| @bit_b_u_fg_a << f['username'] }
+      @bit_b_user_following_array['values'].each { |f| @bit_b_u_fg_a << f['username'] }
     end
 
     #retriving repo info
@@ -205,7 +205,7 @@ module ContentGenerator
     @bit_b_repo_count = @bit_b_user_repo_info['values'].count
     @bit_b_user_repo_info_array = Array.new()
     if @bit_b_repo_count > 0
-      @bit_b_user_repo_info['values'].each{|r| @bit_b_user_repo_info_array << "Project Name = #{r['name']},
+      @bit_b_user_repo_info['values'].each { |r| @bit_b_user_repo_info_array << "Project Name = #{r['name']},
                                                                                Description = #{r['description']},
                                                                                Project URL = #{r['links']['html']['href']},
                                                                                Version Controller = #{r['scm']},
@@ -217,7 +217,7 @@ module ContentGenerator
                                                                                Watchers Count = #{(HTTParty.get("#{r['links']['watchers']['href']}"))['values'].count},
                                                                                Commits Count = #{(HTTParty.get("#{r['links']['commits']['href']}"))['values'].count},
                                                                                Forks Count = #{(HTTParty.get("#{r['links']['forks']['href']}"))['values'].count} "
-                                                                                }
+      }
     end
   end
 
@@ -286,7 +286,7 @@ module ContentGenerator
 
   def elu_content_processor
     @user_id = request["elu_user_id"]
-    
+
     #/users/{ids}
     @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=english")
 
@@ -295,7 +295,7 @@ module ContentGenerator
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
-      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+      @user_answer["items"].each { |item| @answer_collect << "http://english.stackexchange.com/q/#{item["answer_id"]}" }
     else
       @user_answer["items"] = nil
     end
@@ -305,7 +305,7 @@ module ContentGenerator
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
-      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+      @user_question["items"].each { |item| @question_collect << "http://english.stackexchange.com/q/#{item["question_id"]}" }
     else
       @user_question["items"] = nil
     end
@@ -349,7 +349,7 @@ module ContentGenerator
 
   def maths_content_processor
     @user_id = request["maths_user_id"]
-    
+
     #/users/{ids}
     @user_info = self.class.get("http://api.stackexchange.com/2.2/users/#{@user_id}?order=desc&sort=reputation&site=math")
 
@@ -358,7 +358,7 @@ module ContentGenerator
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
-      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+      @user_answer["items"].each { |item| @answer_collect << "http://math.stackexchange.com/q/#{item["answer_id"]}" }
     else
       @user_answer["items"] = nil
     end
@@ -368,7 +368,7 @@ module ContentGenerator
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
-      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+      @user_question["items"].each { |item| @question_collect << "http://math.stackexchange.com/q/#{item["question_id"]}" }
     else
       @user_question["items"] = nil
     end
@@ -421,7 +421,7 @@ module ContentGenerator
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
-      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+      @user_answer["items"].each { |item| @answer_collect << "http://serverfault.com/q/#{item["answer_id"]}" }
     else
       @user_answer["items"] = nil
     end
@@ -431,7 +431,7 @@ module ContentGenerator
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
-      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+      @user_question["items"].each { |item| @question_collect << "http://serverfault.com/q/#{item["question_id"]}" }
     else
       @user_question["items"] = nil
     end
@@ -484,7 +484,7 @@ module ContentGenerator
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
-      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+      @user_answer["items"].each { |item| @answer_collect << "http://superuser.com/q/#{item["answer_id"]}" }
     else
       @user_answer["items"] = nil
     end
@@ -494,7 +494,7 @@ module ContentGenerator
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
-      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+      @user_question["items"].each { |item| @question_collect << "http://superuser.com/q/#{item["question_id"]}" }
     else
       @user_question["items"] = nil
     end
@@ -547,7 +547,7 @@ module ContentGenerator
     @user_answer_count = @user_answer["items"].count
     @answer_collect = Array.new()
     if @user_answer["items"] != nil
-      @user_answer["items"].each { |item| @answer_collect << "http://stackoverflow.com/q/#{item["answer_id"]}" }
+      @user_answer["items"].each { |item| @answer_collect << "http://askubuntu.com/q/#{item["answer_id"]}" }
     else
       @user_answer["items"] = nil
     end
@@ -557,7 +557,7 @@ module ContentGenerator
     @user_question_count = @user_question["items"].count
     @question_collect = Array.new()
     if @user_question["items"] != nil
-      @user_question["items"].each { |item| @question_collect << "http://stackoverflow.com/q/#{item["question_id"]}" }
+      @user_question["items"].each { |item| @question_collect << "http://askubuntu.com/q/#{item["question_id"]}" }
     else
       @user_question["items"] = nil
     end

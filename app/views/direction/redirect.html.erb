@@ -17,11 +17,11 @@
           color: #ffffff;
       }
 
-      .head{
+      .head {
           text-align: right;
       }
 
-      .signo{
+      .signo {
           text-align: right;
       }
 
@@ -49,40 +49,50 @@
           border-color: #1175BF;
       }
 
-      .white1{
+      .white1 {
           padding: 18px 164px 18px 28px;
       }
-      .white2{
+
+      .white2 {
           padding: 18px 95px 18px 28px;
       }
-      .white3{
+
+      .white3 {
           padding: 18px 150px 18px 28px;
       }
-      .white4{
+
+      .white4 {
           padding: 18px 137px 18px 28px;
       }
+
       footer {
           margin-top: 285px;
           padding-top: 25px;
           border-top: 1px solid #eaeaea;
           /*color: #999;*/
       }
+
       footer a {
           color: #ffffff;
       }
+
       footer p {
           color: #ffffff;
       }
+
       footer a:hover {
           color: #000000;
       }
+
       footer small {
           float: left;
       }
+
       footer ul {
           float: right;
           list-style: none;
       }
+
       footer ul li {
           float: left;
           margin-left: 10px;
@@ -97,8 +107,9 @@
 
   <div class="col-md-12">
     <div class="head"><h1><%= link_to "KnacK", '/' %> </h1></div>
-    <div class="signo"><h4><%= link_to 'Signout', destroy_user_session_path, {:style => 'color: #FFFFFF', :class => "signout"},
-         :method => :GET %></h4>
+    <div class="signo">
+      <h4><%= link_to 'Signout', destroy_user_session_path, {:style => 'color: #FFFFFF', :class => "signout"},
+                      :method => :GET %></h4>
     </div>
   </div>
 
@@ -108,39 +119,38 @@
   </div>
 
   <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">Choose the domain</h1>
-      </div>
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <a class="thumbnail" href="/coder/getoption">
-          <button type="button" class="btn btn-primary white1">Developer</button>
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <a class="thumbnail" href="/admins/getoption">
-          <button type="button" class="btn btn-primary white2">System Administrator</button>
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-xs-6 ">
-        <a class="thumbnail" href="/grammarian/getoption">
-          <button type="button" class="btn btn-primary white3">Grammarian</button>
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-xs-6 ">
-        <a class="thumbnail" href="/mathematician/getoption">
-          <button type="button" class="btn btn-primary white4">Mathematician</button>
-        </a>
-      </div>
+    <div class="col-lg-12">
+      <h1 class="page-header">Choose the domain</h1>
     </div>
-  <div><%= render "redirect_footer" %></div>
+    <div class="col-lg-3 col-md-4 col-xs-6">
+      <a class="thumbnail" href="/coder/getoption">
+        <button type="button" class="btn btn-primary white1">Developer</button>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6">
+      <a class="thumbnail" href="/admins/getoption">
+        <button type="button" class="btn btn-primary white2">System Administrator</button>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 ">
+      <a class="thumbnail" href="/grammarian/getoption">
+        <button type="button" class="btn btn-primary white3">Grammarian</button>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 ">
+      <a class="thumbnail" href="/mathematician/getoption">
+        <button type="button" class="btn btn-primary white4">Mathematician</button>
+      </a>
+    </div>
   </div>
+  <div><%= render "redirect_footer" %></div>
+</div>
 <script>
     function under_dev() {
         alert("Will available soon");
     }
 </script>
 </div>
-
 
 
 </body>

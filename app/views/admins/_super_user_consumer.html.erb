@@ -11,8 +11,9 @@
     <div class="form-inline" style="text-align: center">
       <%= form_tag('super_user_consumer', method: :post) do %>
           <div class="form-group">
-            <div class="helper_image_suser"><img onMouseOver="ShowPicture('Style_suser',1)" onMouseOut="ShowPicture('Style_suser',0)"
-                                               alt="Rails" src="/assets/Help-icon.png" title="Login into Super User to get user id"/>
+            <div class="helper_image_suser">
+              <img onMouseOver="ShowPicture('Style_suser',1)" onMouseOut="ShowPicture('Style_suser',0)"
+                   alt="Rails" src="/assets/Help-icon.png" title="Login into Super User to get user id"/>
             </div>
             <div id="Style_suser"><img src="/assets/su.png"></div>
             <div><%= text_field_tag 'suser_user_id', nil, placeholder: 'Super User User Id', :required => true,
