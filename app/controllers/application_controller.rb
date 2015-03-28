@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_no_cache
 
   def after_sign_in_path_for(resource)
-    #sign_in_url = "http://knack-codebeats.herokuapp.com/direction/redirect"
-    sign_in_url = "/direction/redirect"
+    sign_in_url = "http://knack-codebeats.herokuapp.com/direction/redirect"
+    #sign_in_url = "/direction/redirect"
   end
 
   def set_no_cache
