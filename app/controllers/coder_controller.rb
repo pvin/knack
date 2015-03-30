@@ -93,15 +93,16 @@ class CoderController < ApplicationController
 
   def linked_in_consumer
     begin
-      begin
-        linkedin_content_processor
-        lin_pdf_responder
-      rescue Exception => e
-        puts 'Exception at lin starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
-        flash.now[:error] = "data not found."
-        raise CustomExceptions::HandleIfError
-      end
-    rescue
+      flash.now[:error] = "currently unavailable"   # should remove
+    #   begin
+    #     linkedin_content_processor
+    #     lin_pdf_responder
+    #   rescue Exception => e
+    #     puts 'Exception at lin starts * ' + e.message + '*' + e.backtrace.join("\n").to_s + ' for linkedin url ' + "#{@github_user_name}" + ' * end up here'
+    #     flash.now[:error] = "data not found."
+    #     raise CustomExceptions::HandleIfError
+    #   end
+    # rescue
       raise CustomExceptions::HandleIfError
     end
   end
